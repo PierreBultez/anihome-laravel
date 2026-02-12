@@ -256,22 +256,7 @@ const submit = () => {
 
         <FaqSection :faqs="faqs" />
 
-        <section class="bg-muted/30 py-16 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="mb-8 text-3xl font-bold text-primary">
-                    Si vous avez d’autres questions, contactez nous
-                </h2>
-                <Button
-                    size="lg"
-                    as-child
-                    class="rounded-full px-8 py-6 text-lg"
-                >
-                    <Link href="/contact">NOUS CONTACTER</Link>
-                </Button>
-            </div>
-        </section>
-
-        <ProfessionalCareSection 
+        <ProfessionalCareSection
             text="Contactez Anihome, votre service de garde d'animaux professionnel. Nous nous déplaçons à Courthézon, Orange, Sorgues, Bédarrides pour prendre soin de vos compagnons."
         />
     </div>

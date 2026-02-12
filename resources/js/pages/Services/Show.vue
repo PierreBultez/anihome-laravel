@@ -2,6 +2,7 @@
 import { Head } from '@inertiajs/vue3';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
+import TestimonialsSection from '@/components/sections/TestimonialsSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
@@ -13,6 +14,12 @@ defineProps<{
         content: string;
         image_path: string | null;
     };
+    testimonials: Array<{
+        id: number;
+        name: string;
+        content: string;
+        photo_path: string | null;
+    }>;
     faqs: Array<{
         question: string;
         answer: string;
@@ -44,6 +51,8 @@ defineProps<{
             v-html="service.content"
         ></div>
     </div>
+
+    <TestimonialsSection :testimonials="testimonials" />
 
     <FaqSection :faqs="faqs" />
     

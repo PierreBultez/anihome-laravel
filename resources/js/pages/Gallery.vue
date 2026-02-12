@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
+import Lightbox from '@/components/Lightbox.vue';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
@@ -17,6 +19,12 @@ defineProps<{
         answer: string;
     }>;
 }>();
+
+const lightboxRef = ref();
+
+const openLightbox = (index: number) => {
+    lightboxRef.value?.open(index);
+};
 </script>
 
 <template>
@@ -73,8 +81,9 @@ defineProps<{
                 class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
             >
                 <div
-                    v-for="photo in photos"
+                    v-for="(photo, index) in photos"
                     :key="photo.id"
+                    @click="openLightbox(index)"
                     class="group relative aspect-square cursor-pointer overflow-hidden rounded-lg bg-muted shadow-sm transition-shadow hover:shadow-md"
                 >
                     <img
@@ -99,6 +108,8 @@ defineProps<{
                 </p>
             </div>
         </div>
+
+        <Lightbox ref="lightboxRef" :photos="photos" />
 
         <FaqSection :faqs="faqs" />
 

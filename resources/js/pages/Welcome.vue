@@ -12,6 +12,7 @@ import {
 } from 'lucide-vue-next';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
+import TestimonialsSection from '@/components/sections/TestimonialsSection.vue';
 import { Button } from '@/components/ui/button';
 import MainLayout from '@/layouts/MainLayout.vue';
 
@@ -259,6 +260,61 @@ const iconMap: Record<string, any> = {
                     d’animaux, mais un ensemble de services qui vous permettrons
                     de partir l’esprit tranquille.
                 </p>
+                <!-- Featured Services Grid -->
+                <section
+                    class="bg-background py-20"
+                    v-if="featuredServices.length > 0"
+                >
+                    <div class="container mx-auto px-4">
+                        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                            <Link
+                                v-for="service in featuredServices"
+                                :key="service.id"
+                                :href="`/nos-services/${service.slug}`"
+                                class="group block"
+                            >
+                                <div
+                                    class="overflow-hidden rounded-2xl border border-primary/10 bg-card transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl"
+                                >
+                                    <div
+                                        class="aspect-video w-full overflow-hidden"
+                                    >
+                                        <img
+                                            :src="
+                                                service.image_path
+                                                    ? `/storage/${service.image_path}`
+                                                    : '/images/Services_bloc.webp'
+                                            "
+                                            :alt="service.title"
+                                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </div>
+                                    <div class="p-6">
+                                        <h3
+                                            class="mb-3 font-heading text-2xl text-primary"
+                                        >
+                                            {{ service.title }}
+                                        </h3>
+                                        <p
+                                            class="line-clamp-3 text-muted-foreground"
+                                        >
+                                            {{ service.description }}
+                                        </p>
+                                        <div
+                                            class="mt-4 flex items-center font-semibold text-primary"
+                                        >
+                                            En savoir plus
+                                            <span
+                                                class="ml-2 transition-transform group-hover:translate-x-1"
+                                                >→</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
                 <Button
                     size="lg"
                     variant="outline"
@@ -270,87 +326,10 @@ const iconMap: Record<string, any> = {
             </div>
         </section>
 
-        <!-- Featured Services Grid -->
-        <section class="bg-background py-20" v-if="featuredServices.length > 0">
-            <div class="container mx-auto px-4">
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <Link
-                        v-for="service in featuredServices"
-                        :key="service.id"
-                        :href="`/nos-services/${service.slug}`"
-                        class="group block"
-                    >
-                        <div class="overflow-hidden rounded-2xl border border-primary/10 bg-card transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
-                            <div class="aspect-video w-full overflow-hidden">
-                                <img
-                                    :src="service.image_path ? `/storage/${service.image_path}` : '/images/Services_bloc.webp'"
-                                    :alt="service.title"
-                                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div class="p-6">
-                                <h3 class="mb-3 font-heading text-2xl text-primary">{{ service.title }}</h3>
-                                <p class="line-clamp-3 text-muted-foreground">{{ service.description }}</p>
-                                <div class="mt-4 flex items-center font-semibold text-primary">
-                                    En savoir plus
-                                    <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="bg-muted/30 py-20" v-if="testimonials.length > 0">
-            <div class="container mx-auto px-4">
-                <h2 class="mb-6 text-center text-3xl font-bold text-primary">
-                    Témoignages
-                </h2>
-                <div class="mb-12 flex justify-center">
-                    <img
-                        src="/images/line_separator.png"
-                        alt="Separator"
-                        class="h-6 w-auto opacity-50"
-                    />
-                </div>
-                
-                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <div
-                        v-for="testimonial in testimonials"
-                        :key="testimonial.id"
-                        class="rounded-2xl border bg-card p-6 shadow-sm"
-                    >
-                        <div class="flex items-start gap-4">
-                            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-primary/10">
-                                <img 
-                                    v-if="testimonial.photo_path" 
-                                    :src="`/storage/${testimonial.photo_path}`" 
-                                    :alt="testimonial.name"
-                                    class="h-full w-full object-cover"
-                                />
-                                <div v-else class="flex h-full w-full items-center justify-center text-primary">
-                                    <span class="text-xl font-bold">{{ testimonial.name.charAt(0) }}</span>
-                                </div>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-primary">{{ testimonial.name }}</h3>
-                                <div class="mt-2 text-muted-foreground">
-                                    <p class="whitespace-pre-wrap text-sm leading-relaxed">
-                                        {{ testimonial.content }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <TestimonialsSection :testimonials="testimonials" />
 
         <FaqSection :faqs="faqs" />
 
-        <!-- Garde Professionnelle Section -->
         <ProfessionalCareSection />
     </div>
 </template>

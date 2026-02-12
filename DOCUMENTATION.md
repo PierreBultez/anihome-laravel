@@ -45,7 +45,7 @@ Le projet a franchi des étapes importantes de stabilisation. Le socle technique
 - [X] Intégration dynamique de la FAQ sur la page d'accueil et les pages de détails des services.
 
 #### 🛠 PAGES DÉTAILS DES SERVICES
-- [ ] Ajout de la section Témoignages (dynamique).
+- [X] Ajout de la section Témoignages (dynamique).
 - [X] Ajout de la section FAQ (dynamique).
 - [X] Ajout de la section "Garde d’animaux professionnelle".
 

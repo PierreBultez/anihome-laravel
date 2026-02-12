@@ -2,6 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
+import TestimonialsSection from '@/components/sections/TestimonialsSection.vue';
 import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import MainLayout from '@/layouts/MainLayout.vue';
@@ -15,6 +16,12 @@ defineProps<{
         slug: string;
         description: string;
         image_path: string | null;
+    }>;
+    testimonials: Array<{
+        id: number;
+        name: string;
+        content: string;
+        photo_path: string | null;
     }>;
     faqs: Array<{
         question: string;
@@ -87,17 +94,11 @@ defineProps<{
                     </p>
                     <p class="mb-6">
                         Nous intervenons à
-                        <strong class="text-primary">
-                            Courthézon
-                        </strong>
-                        et dans les environs.
-                        N’hésitez pas à nous contacter pour un devis gratuit et
-                        sans engagement. Avec
-                        <strong class="text-primary">
-                            Anihome
-                        </strong>
-                        , votre animal de
-                        compagnie est entre de bonnes mains !
+                        <strong class="text-primary"> Courthézon </strong>
+                        et dans les environs. N’hésitez pas à nous contacter
+                        pour un devis gratuit et sans engagement. Avec
+                        <strong class="text-primary"> Anihome </strong>
+                        , votre animal de compagnie est entre de bonnes mains !
                     </p>
 
                     <ul class="mb-8 list-none space-y-2 pl-0">
@@ -190,22 +191,9 @@ defineProps<{
 
         <FaqSection :faqs="faqs" />
 
-        <section class="bg-muted/30 py-16 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="mb-8 text-3xl font-bold text-primary">
-                    Si vous avez d’autres questions, contactez nous
-                </h2>
-                <Button
-                    size="lg"
-                    as-child
-                    class="rounded-full px-8 py-6 text-lg"
-                >
-                    <Link href="/contact">NOUS CONTACTER</Link>
-                </Button>
-            </div>
-        </section>
+        <TestimonialsSection :testimonials="testimonials" />
 
-        <ProfessionalCareSection 
+        <ProfessionalCareSection
             text="Découvrez nos prestations de garde d'animaux à Courthézon et dans le Vaucluse. Promenades, visites à domicile, soins... Anihome s'adapte à vos besoins pour le bonheur de vos compagnons."
         />
     </div>

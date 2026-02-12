@@ -287,22 +287,9 @@ defineProps<{
 
             <FaqSection :faqs="faqs" />
 
-            <!-- More CTA -->
-            <div class="mt-12 text-center">
-                <h2 class="mb-6 text-2xl font-bold text-primary">
-                    Si vous avez d’autres questions, contactez nous
-                </h2>
-                <Button
-                    size="lg"
-                    as-child
-                    class="rounded-full px-8 py-6 text-lg"
-                >
-                    <Link href="/contact">NOUS CONTACTER</Link>
-                </Button>
-            </div>
         </div>
 
-        <ProfessionalCareSection 
+        <ProfessionalCareSection
             text="Des tarifs clairs et adaptés pour la garde de vos animaux à domicile à Courthézon, Orange et dans tout le Vaucluse. Demandez votre devis gratuit."
         />
     </div>

@@ -132,22 +132,6 @@ const stripHtml = (html: string) => {
 
         <FaqSection :faqs="faqs" />
 
-        <!-- CTA Questions -->
-        <section class="bg-muted/30 py-16 text-center">
-            <div class="container mx-auto px-4">
-                <h2 class="mb-8 text-3xl font-bold text-primary">
-                    Si vous avez d’autres questions, contactez nous
-                </h2>
-                <Button
-                    size="lg"
-                    as-child
-                    class="rounded-full px-8 py-6 text-lg"
-                >
-                    <Link href="/contact">NOUS CONTACTER</Link>
-                </Button>
-            </div>
-        </section>
-
         <!-- News Teaser -->
         <section class="bg-background py-16 text-center" v-if="latestPosts.length > 0">
             <div class="container mx-auto px-4">
@@ -212,7 +196,7 @@ const stripHtml = (html: string) => {
         </section>
 
         <!-- Garde Professionnelle Section (SEO Local) -->
-        <ProfessionalCareSection 
+        <ProfessionalCareSection
             text="Anihome propose ses services de garde d'animaux, de visite à domicile et de promenade canine dans le Vaucluse (84). Nous intervenons principalement sur les communes de Courthézon, Orange, Jonquières, Bédarrides, Sorgues et leurs alentours. Faire appel à un professionnel déclaré et assuré, c'est la garantie d'un service de qualité pour le bien-être de vos compagnons."
         />
     </div>
