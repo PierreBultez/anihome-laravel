@@ -60,5 +60,8 @@ routes/
 - **Assets** : Compilés avec Vite 7.
 - **Base de données** : SQLite par défaut pour la simplicité, mais compatible MySQL/PostgreSQL.
 
+## 6. Services Externes
+- **Emailing (Brevo)** : Le projet utilise Brevo pour l'envoi d'emails transactionnels (Formulaire de contact, Notifications admin, Réinitialisation de mot de passe). L'intégration est faite via le driver SMTP de Laravel.
+
 ---
-*Dernière mise à jour : 10/02/2026*
+*Dernière mise à jour : 12/02/2026*

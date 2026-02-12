@@ -1,10 +1,38 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
+import { Dog, Cat, Rabbit, Footprints, Home, Siren, Stethoscope, Heart } from 'lucide-vue-next';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
+
+const props = defineProps<{
+    services: Array<{
+        id: number;
+        title: string;
+        slug: string;
+        icon: string;
+    }>;
+    featuredServices: Array<{
+        id: number;
+        title: string;
+        slug: string;
+        description: string;
+        image_path: string | null;
+    }>;
+}>();
+
+const iconMap: Record<string, any> = {
+    Dog,
+    Cat,
+    Rabbit,
+    Footprints,
+    Home,
+    Siren,
+    Stethoscope,
+    Heart,
+};
 </script>
 
 <template>
@@ -89,7 +117,7 @@ defineOptions({ layout: MainLayout });
         </section>
 
         <!-- Passionnés, pros Section -->
-        <section class="relative z-10 bg-background py-20">
+        <section class="relative z-10 bg-background py-20 pb-10">
             <div class="container mx-auto px-4 text-center">
                 <h2 class="mb-6 text-3xl font-bold text-primary">
                     Passionnés, pros
@@ -161,6 +189,27 @@ defineOptions({ layout: MainLayout });
             </div>
         </section>
 
+        <!-- Quick Service Links Grid -->
+        <section class="bg-background py-10" v-if="services.length > 0">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+                    <Link
+                        v-for="service in services"
+                        :key="service.id"
+                        :href="`/nos-services/${service.slug}`"
+                        class="group flex flex-col items-center gap-3 rounded-2xl border border-primary/10 bg-muted/30 p-6 transition-all duration-300 hover:-translate-y-2 hover:bg-primary hover:shadow-xl"
+                    >
+                        <div class="rounded-full bg-primary/10 p-4 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
+                            <component :is="iconMap[service.icon] || Dog" class="h-8 w-8" />
+                        </div>
+                        <span class="font-heading text-lg font-semibold text-primary transition-colors duration-300 group-hover:text-white text-center">
+                            {{ service.title }}
+                        </span>
+                    </Link>
+                </div>
+            </div>
+        </section>
+
         <!-- Service Complet Section -->
         <section class="bg-muted/30 py-20 text-center">
             <div class="container mx-auto px-4">
@@ -189,6 +238,38 @@ defineOptions({ layout: MainLayout });
                 >
                     <Link href="/nos-services">VOIR NOS SERVICES</Link>
                 </Button>
+            </div>
+        </section>
+
+        <!-- Featured Services Grid -->
+        <section class="bg-background py-20" v-if="featuredServices.length > 0">
+            <div class="container mx-auto px-4">
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <Link
+                        v-for="service in featuredServices"
+                        :key="service.id"
+                        :href="`/nos-services/${service.slug}`"
+                        class="group block"
+                    >
+                        <div class="overflow-hidden rounded-2xl border border-primary/10 bg-card transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                            <div class="aspect-video w-full overflow-hidden">
+                                <img
+                                    :src="service.image_path ? `/storage/${service.image_path}` : '/images/Services_bloc.webp'"
+                                    :alt="service.title"
+                                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <h3 class="mb-3 font-heading text-2xl text-primary">{{ service.title }}</h3>
+                                <p class="line-clamp-3 text-muted-foreground">{{ service.description }}</p>
+                                <div class="mt-4 flex items-center font-semibold text-primary">
+                                    En savoir plus
+                                    <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
             </div>
         </section>
 

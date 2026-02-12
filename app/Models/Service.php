@@ -19,9 +19,11 @@ class Service extends Model
         'image_path',
         'icon',
         'is_active',
+        'is_featured',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'is_featured' => 'boolean',
     ];
 }

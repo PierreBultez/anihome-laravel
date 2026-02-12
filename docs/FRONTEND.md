@@ -40,5 +40,9 @@ L'application supporte le mode sombre et clair.
 ## 5. Formulaires
 Nous utilisons `useForm` de `@inertiajs/vue3` pour la gestion des états de formulaire, la validation et les erreurs synchronisées avec Laravel.
 
+## 6. Édition de Contenu
+- **TipTap** : Utilisé pour les éditeurs de texte riche (WYSIWYG) dans l'administration.
+- **Tailwind Typography (`prose`)** : Utilisé pour le rendu du contenu HTML généré par l'éditeur, assurant un style cohérent et professionnel sur le front-end.
+
 ---
-*Dernière mise à jour : 10/02/2026*
+*Dernière mise à jour : 12/02/2026*

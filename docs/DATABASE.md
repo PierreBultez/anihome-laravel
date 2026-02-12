@@ -22,10 +22,10 @@ Détaille les prestations proposées.
 - `title` : Nom du service
 - `slug` : Identifiant URL unique
 - `description` : Résumé court pour les cartes
-- `content` : Description complète (HTML/Markdown)
+- `content` : Description complète (HTML)
 - `image_path` : Illustration principale
-- `icon` : Nom de l'icône (Lucide/Heroicons)
 - `is_active` : Statut d'affichage (Boolean, défaut: true)
+- `is_featured` : Mise en avant sur l'accueil (Boolean, défaut: false)
 - `timestamps`
 
 ### Table : `posts`
@@ -47,14 +47,30 @@ Articles d'actualité ou blog.
 - `order` : Ordre d'affichage (Integer)
 - `timestamps`
 
+### Table : `faqs` (À venir)
+Questions fréquemment posées.
+- `id` (PK)
+- `question`
+- `answer`
+- `order` : Ordre d'affichage
+- `timestamps`
+
+### Table : `testimonials` (À venir)
+Avis des clients.
+- `id` (PK)
+- `client_name`
+- `client_photo` (path)
+- `message`
+- `is_visible`
+- `timestamps`
+
 ## 2. Relations
 
 - **User ↔ Post** : `User` (1) --- hasMany ---> `Post` (N). Un utilisateur peut être l'auteur de plusieurs articles.
-- **Service** et **Photo** sont actuellement des entités indépendantes.
 
 ## 3. Index et Performance
 - Les colonnes `slug` sont indexées de manière unique (`unique()`) pour des recherches rapides lors de l'accès aux pages de détail.
 - La clé étrangère `user_id` dans `posts` est indexée par défaut par Laravel.
 
 ---
-*Dernière mise à jour : 10/02/2026*
+*Dernière mise à jour : 12/02/2026*

@@ -18,23 +18,45 @@ Anihome est un site vitrine et une plateforme d'administration pour la gestion d
 3.  **[Frontend](./docs/FRONTEND.md)** : Guide sur Vue 3, Inertia, Tailwind et Wayfinder.
 4.  **[Développement](./docs/DEVELOPMENT.md)** : Installation, tests et conventions.
 
-## 🛠 État du Projet (Février 2026)
+## 🛠 État du Projet (12 Février 2026)
 
-Le projet est en phase finale de développement. Les fonctionnalités CRUD de base (Services, Posts, Photos) sont opérationnelles.
+Le projet a franchi des étapes importantes de stabilisation. Le socle technique est robuste et les fonctionnalités d'administration de base sont validées par des tests automatisés.
 
-### Prochaines étapes :
-*   **Blog (Articles) :**
-    *   Intégrer un **éditeur de texte riche (WYSIWYG)** pour les articles, avec gestion de l'insertion d'images dans le contenu.
-    *   Ajouter la possibilité d'ajouter une **image d'illustration** (Cover) aux articles.
-*   **Services :**
-    *   Ajouter la possibilité d'ajouter une **image d'illustration** aux services.
-    *   Corriger le fonctionnement du bouton **"Actif/Inactif"** dans l'onglet services.
-*   **Album (Photos) :**
-    *   Afficher un **aperçu de l'image** après l'upload dans le formulaire d'ajout.
-*   **Administration Globale (CRUD) :**
-    *   Ajouter la **sélection multiple** sur les tableaux de bord pour permettre la **suppression en masse**.
-*   **Qualité :**
-    *   Amélioration de la couverture de tests (Feature tests pour l'admin).
+### Réalisations Récentes :
+- **Administration** : Correction de la sélection multiple et suppression en masse sur tous les modules (Services, Posts, Photos).
+- **Services** : Réparation du toggle "Actif/Inactif" et ajout de l'image de couverture sur le front-end.
+- **Contenu Riche** : Intégration complète de TipTap (WYSIWYG) avec gestion des uploads d'images et rendu `prose` (Tailwind Typography).
+- **Communication** : Système d'envoi d'emails opérationnel (Brevo) pour le formulaire de contact avec email de confirmation automatique au visiteur.
+- **Album** : Amélioration de l'expérience d'upload avec prévisualisation des photos.
+
+### 📋 Prochaines Étapes :
+
+#### 🏠 ACCUEIL
+- [X] Ajouter des liens vers les services avec icônes et animations au survol.
+- [ ] Système de **Témoignages** : CRUD admin (Nom, Photo, Message) et affichage dynamique.
+- [X] Section "Service complet" : Mettre en avant 3 services sélectionnés via une option "Featured" en admin.
+
+#### ℹ️ QUI SOMMES NOUS ?
+- [ ] Affichage dynamique des 3 ou 4 derniers articles de blog.
+- [ ] Intégration de la section **"Garde d’animaux professionnelle"** (SEO Local) présente avant le footer sur toutes les pages avec textes différenciés.
+
+#### ❓ FAQ
+- [ ] Création d'un CRUD **FAQ** complet en administration.
+- [ ] Intégration dynamique de la FAQ sur la page d'accueil et les pages de détails des services.
+
+#### 🛠 PAGES DÉTAILS DES SERVICES
+- [ ] Ajout de la section Témoignages (dynamique).
+- [ ] Ajout de la section FAQ (dynamique).
+- [ ] Ajout de la section "Garde d’animaux professionnelle".
+
+#### 🖼 ALBUM
+- [ ] Ajout d'une visionneuse (Lightbox) pour afficher les photos en pleine taille au clic.
+
+#### 📰 ACTUALITÉ
+- [ ] Ajout de la section "Garde d’animaux professionnelle".
+
+#### 🔗 LIENS DU FOOTER
+- [ ] Créer la page "Politique de confidentialité" et "Mentions légales" (contenu standard).
 
 ---
-*Dernière mise à jour : 10/02/2026*
+*Dernière mise à jour : 12/02/2026*

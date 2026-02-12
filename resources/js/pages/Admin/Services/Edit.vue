@@ -5,6 +5,13 @@ import RichTextEditor from '@/components/RichTextEditor.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
 import AppLayout from '@/layouts/AppLayout.vue';
@@ -38,7 +45,9 @@ const form = useForm({
     title: props.service.title,
     description: props.service.description,
     content: props.service.content,
+    icon: props.service.icon || 'Dog',
     is_active: !!props.service.is_active,
+    is_featured: !!props.service.is_featured,
     image: null as File | null,
 });
 
@@ -154,13 +163,48 @@ const submit = () => {
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-2">
-                    <Switch
-                        id="is_active"
-                        :model-value="form.is_active"
-                        @update:model-value="form.is_active = $event"
-                    />
-                    <Label for="is_active">Actif</Label>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div class="space-y-2">
+                        <Label for="icon">Icône (Page d'accueil)</Label>
+                        <Select v-model:model-value="form.icon">
+                            <SelectTrigger>
+                                <SelectValue placeholder="Choisir une icône" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="Dog">Chien</SelectItem>
+                                <SelectItem value="Cat">Chat</SelectItem>
+                                <SelectItem value="Rabbit">Lapin / NAC</SelectItem>
+                                <SelectItem value="Footprints">Empreintes / Promenade</SelectItem>
+                                <SelectItem value="Home">Maison / À domicile</SelectItem>
+                                <SelectItem value="Siren">Urgence</SelectItem>
+                                <SelectItem value="Stethoscope">Soins</SelectItem>
+                                <SelectItem value="Heart">Amour / Accompagnement</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <div v-if="form.errors.icon" class="text-sm text-red-500">
+                            {{ form.errors.icon }}
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4 pt-8">
+                        <div class="flex items-center space-x-2">
+                            <Switch
+                                id="is_active"
+                                :model-value="form.is_active"
+                                @update:model-value="form.is_active = $event"
+                            />
+                            <Label for="is_active">Afficher sur le site</Label>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <Switch
+                                id="is_featured"
+                                :model-value="form.is_featured"
+                                @update:model-value="form.is_featured = $event"
+                            />
+                            <Label for="is_featured">Mettre en avant (Accueil)</Label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex justify-end gap-4">

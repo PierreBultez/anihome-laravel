@@ -57,4 +57,4 @@ Le projet est prêt pour le déploiement sur toute plateforme supportant Laravel
 N'oubliez pas d'exécuter `npm run build` pour générer les assets de production.
 
 ---
-*Dernière mise à jour : 10/02/2026*
+*Dernière mise à jour : 12/02/2026*

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';
@@ -16,6 +16,21 @@ import { Textarea } from '@/components/ui/textarea';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
+
+const form = useForm({
+    firstname: '',
+    name: '',
+    email: '',
+    animal: '',
+    message: '',
+});
+
+const submit = () => {
+    form.post('/contact', {
+        preserveScroll: true,
+        onSuccess: () => form.reset(),
+    });
+};
 </script>
 
 <template>
@@ -48,35 +63,46 @@ defineOptions({ layout: MainLayout });
                         solution.
                     </p>
 
+                    <div
+                        v-if="$page.props.flash?.success"
+                        class="mb-6 rounded-lg bg-green-50 p-4 text-green-700"
+                    >
+                        {{ $page.props.flash.success }}
+                    </div>
+
                     <form
+                        @submit.prevent="submit"
                         class="space-y-6 rounded-xl border bg-card p-8 shadow-sm"
                     >
                         <div class="grid grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <Label htmlFor="firstname"
+                                <Label for="firstname"
                                     >Votre prénom *</Label
                                 >
-                                <Input id="firstname" placeholder="" required />
+                                <Input id="firstname" v-model="form.firstname" required />
+                                <div v-if="form.errors.firstname" class="text-sm text-red-500">{{ form.errors.firstname }}</div>
                             </div>
                             <div class="space-y-2">
-                                <Label htmlFor="name">Votre nom *</Label>
-                                <Input id="name" placeholder="" required />
+                                <Label for="name">Votre nom *</Label>
+                                <Input id="name" v-model="form.name" required />
+                                <div v-if="form.errors.name" class="text-sm text-red-500">{{ form.errors.name }}</div>
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <Label htmlFor="email">Votre email *</Label>
+                            <Label for="email">Votre email *</Label>
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder=""
+                                v-model="form.email"
                                 required
                             />
+                            <div v-if="form.errors.email" class="text-sm text-red-500">{{ form.errors.email }}</div>
                         </div>
 
                         <div class="space-y-2">
-                            <Label htmlFor="animal">Votre animal</Label>
-                            <Select>
+                            <Label for="animal">Votre animal</Label>
+                            <Select v-model:model-value="form.animal">
                                 <SelectTrigger>
                                     <SelectValue placeholder="Votre animal" />
                                 </SelectTrigger>
@@ -113,24 +139,28 @@ defineOptions({ layout: MainLayout });
                                     >
                                 </SelectContent>
                             </Select>
+                            <div v-if="form.errors.animal" class="text-sm text-red-500">{{ form.errors.animal }}</div>
                         </div>
 
                         <div class="space-y-2">
-                            <Label htmlFor="message">Votre message *</Label>
+                            <Label for="message">Votre message *</Label>
                             <Textarea
                                 id="message"
                                 class="min-h-37.5"
-                                placeholder=""
+                                v-model="form.message"
                                 required
                             />
+                            <div v-if="form.errors.message" class="text-sm text-red-500">{{ form.errors.message }}</div>
                         </div>
 
                         <Button
                             type="submit"
                             size="lg"
                             class="w-full py-6 text-lg"
-                            >DEMANDER UN DEVIS</Button
+                            :disabled="form.processing"
                         >
+                            {{ form.processing ? 'ENVOI EN COURS...' : 'DEMANDER UN DEVIS' }}
+                        </Button>
                     </form>
                 </div>
 

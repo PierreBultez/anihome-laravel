@@ -71,7 +71,7 @@ defineProps<{
                         pattes pendant votre absence, que ce soit pour une
                         journée, une semaine ou plus.
                     </p>
-                    <p class="mb-6">
+                    <p class="mb-4">
                         Nous nous occupons de votre
                         <strong class="text-primary"
                             >chien, chat, lapin, hamster, oiseau</strong
@@ -80,6 +80,20 @@ defineProps<{
                         <strong class="text-primary">animal domestique</strong>
                         avec amour et respect. Nous vous envoyons des photos et
                         des nouvelles régulièrement pour vous rassurer.
+                    </p>
+                    <p class="mb-6">
+                        Nous intervenons à
+                        <strong class="text-primary">
+                            Courthézon
+                        </strong>
+                        et dans les environs.
+                        N’hésitez pas à nous contacter pour un devis gratuit et
+                        sans engagement. Avec
+                        <strong class="text-primary">
+                            Anihome
+                        </strong>
+                        , votre animal de
+                        compagnie est entre de bonnes mains !
                     </p>
 
                     <ul class="mb-8 list-none space-y-2 pl-0">
@@ -135,7 +149,11 @@ defineProps<{
                         >
                             <div class="aspect-video w-full overflow-hidden">
                                 <img
-                                    :src="service.image_path ? `/storage/${service.image_path}` : '/images/Services_bloc.webp'"
+                                    :src="
+                                        service.image_path
+                                            ? `/storage/${service.image_path}`
+                                            : '/images/Services_bloc.webp'
+                                    "
                                     :alt="service.title"
                                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
