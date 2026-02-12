@@ -69,7 +69,30 @@ Ce rapport détaille les correctifs techniques et les améliorations d'interface
 - **Dynamisme** : Affichage automatique des 3 derniers articles de blog.
 - **Design** : Harmonisation de l'affichage des cartes articles avec la page Actualités.
 
-## 6. Tests & Qualité
+## 6. Amélioration des Pages de Détails de Services
+- **Composant Testimonials** : Refactorisation de la section témoignages en un composant réutilisable `TestimonialsSection.vue`.
+- **Intégration Dynamique** : Mise à jour de `ServiceController@show` pour injecter les témoignages sur chaque page de service.
+- **Mise en page** : Affichage ordonné incluant le contenu riche, l'image de couverture, les témoignages, la FAQ et la section SEO Local.
+
+## 7. Système de Lightbox (Album Photo)
+- **Création du Composant** : Implémentation de `Lightbox.vue` basé sur les primitives de dialogue `reka-ui` (Radix).
+- **Fonctionnalités** :
+  - Navigation fluide avec boutons Suivant/Précédent et touches fléchées du clavier.
+  - Gestion intelligente du ratio d'image (support des orientations Portrait et Paysage sans recadrage via `object-contain`).
+  - Fermeture via touche `Echap`, bouton dédié ou clic extérieur.
+  - Affichage dynamique du titre de la photo.
+- **Intégration** : Déploiement sur la page `Gallery.vue` avec support du lazy loading.
+
+## 8. Pages Légales & Conformité
+- **Routage** : Création des routes `/politique-de-confidentialite` et `/mentions-legales` dans `web.php`.
+- **Contenu** : Implémentation des pages `PrivacyPolicy.vue` et `LegalMentions.vue` avec un design épuré utilisant Tailwind Typography (`prose`).
+- **Transparence** : 
+  - Mention explicite de l'absence de tracking (Pas de Google Analytics).
+  - Détails sur le prestataire d'emailing **Brevo** (Paris, France, certifié RGPD).
+  - Informations sur l'hébergeur **OVH** (Roubaix, France).
+- **SEO** : Ajout de balises `meta robots: noindex` pour éviter le référencement inutile de ces pages tout en permettant le suivi des liens.
+
+## 9. Tests & Qualité
 
 ### ✅ Tests Automatisés
 - **Nouveau Test** : Création de `tests/Feature/Admin/PhotoTest.php` pour couvrir les fonctionnalités d'administration de l'album (Liste, Upload, Suppression en masse).

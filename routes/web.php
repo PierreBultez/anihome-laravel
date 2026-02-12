@@ -40,6 +40,14 @@ Route::get('/actualite/{post:slug}', [PostController::class, 'show'])->name('pos
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::get('/politique-de-confidentialite', function () {
+    return Inertia::render('PrivacyPolicy');
+})->name('privacy');
+
+Route::get('/mentions-legales', function () {
+    return Inertia::render('LegalMentions');
+})->name('legal');
+
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
