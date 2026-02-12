@@ -1,4 +1,4 @@
-# Anihome Laravel
+# Anihome-Laravel
 
 Anihome est une plateforme de gestion de services animaliers développée avec **Laravel 12**, **Inertia.js v2** et **Vue 3**.
 
