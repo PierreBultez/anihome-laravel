@@ -35,7 +35,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 const selectedIds = ref<number[]>([]);
 
 const allSelected = computed(() => {
-    return props.posts.length > 0 && selectedIds.value.length === props.posts.length;
+    return (
+        props.posts.length > 0 &&
+        selectedIds.value.length === props.posts.length
+    );
 });
 
 const toggleAll = () => {
@@ -61,7 +64,11 @@ const deletePost = (id: number) => {
 };
 
 const deleteSelected = () => {
-    if (confirm(`Êtes-vous sûr de vouloir supprimer ${selectedIds.value.length} articles ?`)) {
+    if (
+        confirm(
+            `Êtes-vous sûr de vouloir supprimer ${selectedIds.value.length} articles ?`,
+        )
+    ) {
         router.delete('/admin/posts/bulk', {
             data: {
                 ids: selectedIds.value,
@@ -104,12 +111,13 @@ const deleteSelected = () => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                                                                                    <TableHead class="w-[50px]">
-                                                                                        <Checkbox 
-                                                                                            :checked="allSelected"
-                                                                                            @update:checked="toggleAll()"
-                                                                                        />
-                                                                                    </TableHead>                            <TableHead>Titre</TableHead>
+                            <TableHead class="w-[50px]">
+                                <Checkbox
+                                    :model-value="allSelected"
+                                    @update:model-value="toggleAll()"
+                                />
+                            </TableHead>
+                            <TableHead>Titre</TableHead>
                             <TableHead>Auteur</TableHead>
                             <TableHead>Publication</TableHead>
                             <TableHead class="text-right">Actions</TableHead>
@@ -117,12 +125,15 @@ const deleteSelected = () => {
                     </TableHeader>
                     <TableBody>
                         <TableRow v-for="post in posts" :key="post.id">
-                                                                                    <TableCell>
-                                                                                        <Checkbox 
-                                                                                            :checked="selectedIds.includes(post.id)"
-                                                                                            @update:checked="() => toggleSelection(post.id)"
-                                                                                        />
-                                                                                    </TableCell>                            <TableCell class="font-medium">{{
+                            <TableCell>
+                                <Checkbox
+                                    :model-value="selectedIds.includes(post.id)"
+                                    @update:model-value="
+                                        () => toggleSelection(post.id)
+                                    "
+                                />
+                            </TableCell>
+                            <TableCell class="font-medium">{{
                                 post.title
                             }}</TableCell>
                             <TableCell>{{ post.user.name }}</TableCell>

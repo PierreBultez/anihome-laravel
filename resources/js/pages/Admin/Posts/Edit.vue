@@ -113,7 +113,7 @@ const submit = () => {
                                 type="button"
                                 variant="destructive"
                                 size="sm"
-                                class="absolute right-2 top-2"
+                                class="absolute top-2 right-2"
                                 @click="removeImage"
                             >
                                 Supprimer / Remplacer

@@ -24,7 +24,7 @@ defineProps<{
     </Head>
 
     <div class="container mx-auto px-4 py-12">
-        <article class="prose lg:prose-xl mx-auto">
+        <article class="mx-auto prose lg:prose-xl">
             <h1 class="mb-4 text-center text-4xl font-bold text-primary">
                 {{ post.title }}
             </h1>
@@ -49,7 +49,7 @@ defineProps<{
             </div>
 
             <div
-                class="prose dark:prose-invert max-w-none text-lg leading-relaxed text-foreground"
+                class="prose max-w-none text-lg leading-relaxed text-foreground dark:prose-invert"
                 v-html="post.content"
             ></div>
         </article>

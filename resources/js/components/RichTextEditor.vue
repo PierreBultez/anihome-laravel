@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from '@tiptap/vue-3';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
+import axios from 'axios';
 import { watch, onBeforeUnmount, ref } from 'vue';
 import {
     Bold,
@@ -21,7 +22,6 @@ import {
     Loader2,
 } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
-import axios from 'axios';
 
 const props = defineProps<{
     modelValue: string;
@@ -116,11 +116,15 @@ const uploadImage = async (file: File) => {
         });
 
         if (response.data.url) {
-            editor.value?.chain().focus().setImage({ src: response.data.url }).run();
+            editor.value
+                ?.chain()
+                .focus()
+                .setImage({ src: response.data.url })
+                .run();
         }
     } catch (error) {
         console.error('Upload failed:', error);
-        alert('Échec de l\'envoi de l\'image.');
+        alert("Échec de l'envoi de l'image.");
     } finally {
         isUploading.value = false;
     }
@@ -193,7 +197,9 @@ onBeforeUnmount(() => {
                 variant="ghost"
                 size="icon"
                 class="h-8 w-8"
-                @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 2 }).run()
+                "
                 :class="{
                     'bg-accent text-accent-foreground': editor.isActive(
                         'heading',
@@ -209,7 +215,9 @@ onBeforeUnmount(() => {
                 variant="ghost"
                 size="icon"
                 class="h-8 w-8"
-                @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 3 }).run()
+                "
                 :class="{
                     'bg-accent text-accent-foreground': editor.isActive(
                         'heading',

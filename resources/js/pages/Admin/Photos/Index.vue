@@ -35,7 +35,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 const selectedIds = ref<number[]>([]);
 
 const allSelected = computed(() => {
-    return props.photos.length > 0 && selectedIds.value.length === props.photos.length;
+    return (
+        props.photos.length > 0 &&
+        selectedIds.value.length === props.photos.length
+    );
 });
 
 const toggleAll = () => {
@@ -61,7 +64,11 @@ const deletePhoto = (id: number) => {
 };
 
 const deleteSelected = () => {
-    if (confirm(`Êtes-vous sûr de vouloir supprimer ${selectedIds.value.length} photos ?`)) {
+    if (
+        confirm(
+            `Êtes-vous sûr de vouloir supprimer ${selectedIds.value.length} photos ?`,
+        )
+    ) {
         router.delete('/admin/photos/bulk', {
             data: {
                 ids: selectedIds.value,
@@ -82,9 +89,9 @@ const deleteSelected = () => {
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl font-bold">Album Photo</h1>
                 <div class="flex items-center gap-2">
-                    <Button 
-                        v-if="selectedIds.length > 0" 
-                        variant="destructive" 
+                    <Button
+                        v-if="selectedIds.length > 0"
+                        variant="destructive"
                         size="sm"
                         @click="deleteSelected"
                     >
@@ -105,9 +112,9 @@ const deleteSelected = () => {
                     <TableHeader>
                         <TableRow>
                             <TableHead class="w-[50px]">
-                                <Checkbox 
-                                    :checked="allSelected"
-                                    @update:checked="toggleAll()"
+                                <Checkbox
+                                    :model-value="allSelected"
+                                    @update:model-value="toggleAll()"
                                 />
                             </TableHead>
                             <TableHead class="w-25">Aperçu</TableHead>
@@ -119,9 +126,13 @@ const deleteSelected = () => {
                     <TableBody>
                         <TableRow v-for="photo in photos" :key="photo.id">
                             <TableCell>
-                                <Checkbox 
-                                    :checked="selectedIds.includes(photo.id)"
-                                    @update:checked="() => toggleSelection(photo.id)"
+                                <Checkbox
+                                    :model-value="
+                                        selectedIds.includes(photo.id)
+                                    "
+                                    @update:model-value="
+                                        () => toggleSelection(photo.id)
+                                    "
                                 />
                             </TableCell>
                             <TableCell>

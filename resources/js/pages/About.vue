@@ -32,7 +32,7 @@ defineOptions({ layout: MainLayout });
                     />
                 </div>
                 <div
-                    class="prose order-1 max-w-none text-lg leading-relaxed text-muted-foreground md:order-2"
+                    class="order-1 prose max-w-none text-lg leading-relaxed text-muted-foreground md:order-2"
                 >
                     <h2 class="mb-6 text-3xl font-bold text-primary">
                         Pierre et Wendy

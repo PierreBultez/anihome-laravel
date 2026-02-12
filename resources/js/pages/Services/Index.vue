@@ -14,6 +14,7 @@ defineProps<{
         title: string;
         slug: string;
         description: string;
+        image_path: string | null;
     }>;
 }>();
 </script>
@@ -130,8 +131,15 @@ defineProps<{
                         class="group block h-full"
                     >
                         <Card
-                            class="h-full border-primary/10 bg-background transition-all duration-300 group-hover:-translate-y-1 hover:shadow-xl"
+                            class="h-full overflow-hidden border-primary/10 bg-background transition-all duration-300 group-hover:-translate-y-1 hover:shadow-xl"
                         >
+                            <div class="aspect-video w-full overflow-hidden">
+                                <img
+                                    :src="service.image_path ? `/storage/${service.image_path}` : '/images/Services_bloc.webp'"
+                                    :alt="service.title"
+                                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                            </div>
                             <CardHeader>
                                 <CardTitle
                                     class="text-xl text-primary group-hover:text-primary/80"

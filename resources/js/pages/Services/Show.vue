@@ -24,7 +24,7 @@ defineProps<{
         <h1 class="mb-8 text-center text-4xl font-bold text-primary">
             {{ service.title }}
         </h1>
-        
+
         <div v-if="service.image_path" class="mx-auto mb-8 max-w-3xl">
             <img
                 :src="`/storage/${service.image_path}`"
@@ -34,7 +34,7 @@ defineProps<{
         </div>
 
         <div
-            class="prose dark:prose-invert mx-auto max-w-3xl text-lg leading-relaxed text-muted-foreground"
+            class="mx-auto prose max-w-3xl text-lg leading-relaxed text-muted-foreground dark:prose-invert"
             v-html="service.content"
         ></div>
     </div>

@@ -124,9 +124,11 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                     <TableHeader>
                         <TableRow>
                             <TableHead class="w-[50px]">
-                                <Checkbox 
-                                    :checked="allSelected"
-                                    @update:checked="(checked: any) => toggleAll(!!checked)"
+                                <Checkbox
+                                    :model-value="allSelected"
+                                    @update:model-value="
+                                        (checked: any) => toggleAll(!!checked)
+                                    "
                                 />
                             </TableHead>
                             <TableHead>Titre</TableHead>
@@ -138,9 +140,17 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                     <TableBody>
                         <TableRow v-for="service in services" :key="service.id">
                             <TableCell>
-                                <Checkbox 
-                                    :checked="selectedIds.includes(service.id)"
-                                    @update:checked="(checked: any) => toggleSelection(service.id, !!checked)"
+                                <Checkbox
+                                    :model-value="
+                                        selectedIds.includes(service.id)
+                                    "
+                                    @update:model-value="
+                                        (checked: any) =>
+                                            toggleSelection(
+                                                service.id,
+                                                !!checked,
+                                            )
+                                    "
                                 />
                             </TableCell>
                             <TableCell class="font-medium">{{
@@ -152,8 +162,10 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                             <TableCell>
                                 <div class="flex items-center space-x-2">
                                     <Switch
-                                        :checked="!!service.is_active"
-                                        @update:checked="toggleStatus(service)"
+                                        :model-value="!!service.is_active"
+                                        @update:model-value="
+                                            toggleStatus(service)
+                                        "
                                     />
                                     <span class="text-sm text-muted-foreground">
                                         {{

@@ -89,7 +89,7 @@ const submit = () => {
             <h1 class="text-2xl font-bold">Modifier le Service</h1>
 
             <form @submit.prevent="submit" class="space-y-6">
-                 <!-- Image de couverture -->
+                <!-- Image de couverture -->
                 <div class="space-y-2">
                     <Label for="image">Image de couverture</Label>
                     <div class="flex flex-col gap-4">
@@ -112,7 +112,7 @@ const submit = () => {
                                 type="button"
                                 variant="destructive"
                                 size="sm"
-                                class="absolute right-2 top-2"
+                                class="absolute top-2 right-2"
                                 @click="removeImage"
                             >
                                 Supprimer / Remplacer
@@ -157,8 +157,8 @@ const submit = () => {
                 <div class="flex items-center space-x-2">
                     <Switch
                         id="is_active"
-                        :checked="form.is_active"
-                        @update:checked="form.is_active = $event"
+                        :model-value="form.is_active"
+                        @update:model-value="form.is_active = $event"
                     />
                     <Label for="is_active">Actif</Label>
                 </div>
