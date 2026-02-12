@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index, store } from '@/routes/admin/photos';
 import { type BreadcrumbItem } from '@/types';
+import { ref } from 'vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -24,6 +25,8 @@ const form = useForm({
     order: 0,
 });
 
+const imagePreview = ref<string | null>(null);
+
 const submit = () => {
     form.post(store(), {
         forceFormData: true,
@@ -33,7 +36,17 @@ const submit = () => {
 const handleFileChange = (e: Event) => {
     const target = e.target as HTMLInputElement;
     if (target.files && target.files[0]) {
-        form.image = target.files[0];
+        const file = target.files[0];
+        form.image = file;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imagePreview.value = e.target?.result as string;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        form.image = null;
+        imagePreview.value = null;
     }
 };
 </script>
@@ -65,6 +78,16 @@ const handleFileChange = (e: Event) => {
                         @change="handleFileChange"
                         required
                     />
+                    <div
+                        v-if="imagePreview"
+                        class="mt-2 w-full max-w-md overflow-hidden rounded-lg border"
+                    >
+                        <img
+                            :src="imagePreview"
+                            alt="Aperçu"
+                            class="max-h-64 w-full object-contain"
+                        />
+                    </div>
                     <div v-if="form.errors.image" class="text-sm text-red-500">
                         {{ form.errors.image }}
                     </div>

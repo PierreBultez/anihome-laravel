@@ -22,6 +22,10 @@ defineProps<{
         image_path: string | null;
     }>;
 }>();
+
+const stripHtml = (html: string) => {
+    return html.replace(/<[^>]*>?/gm, '');
+};
 </script>
 
 <template>
@@ -52,7 +56,7 @@ defineProps<{
                     class="h-48 overflow-hidden rounded-t-xl"
                 >
                     <img
-                        :src="post.image_path"
+                        :src="`/storage/${post.image_path}`"
                         :alt="post.title"
                         class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                     />
@@ -69,7 +73,7 @@ defineProps<{
                 </CardHeader>
                 <CardContent class="grow">
                     <p class="line-clamp-3 text-muted-foreground">
-                        {{ post.content }}
+                        {{ stripHtml(post.content) }}
                     </p>
                 </CardContent>
                 <CardFooter>

@@ -91,4 +91,24 @@ class PhotoController extends Controller
 
         return redirect()->route('admin.photos.index')->with('success', 'Photo supprimée avec succès.');
     }
+
+    public function bulkDestroy(Request $request)
+    {
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:photos,id',
+        ]);
+
+        $photos = Photo::whereIn('id', $request->ids)->get();
+
+        foreach ($photos as $photo) {
+            if ($photo->path && str_starts_with($photo->path, '/storage/')) {
+                $oldPath = str_replace('/storage/', '', $photo->path);
+                Storage::disk('public')->delete($oldPath);
+            }
+            $photo->delete();
+        }
+
+        return redirect()->route('admin.photos.index')->with('success', 'Photos supprimées avec succès.');
+    }
 }

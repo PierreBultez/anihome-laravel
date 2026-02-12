@@ -42,17 +42,16 @@ defineProps<{
 
             <div v-if="post.image_path" class="mb-8">
                 <img
-                    :src="post.image_path"
+                    :src="`/storage/${post.image_path}`"
                     :alt="post.title"
                     class="h-auto max-h-125 w-full rounded-xl object-cover shadow-lg"
                 />
             </div>
 
             <div
-                class="text-lg leading-relaxed whitespace-pre-wrap text-foreground"
-            >
-                {{ post.content }}
-            </div>
+                class="prose dark:prose-invert max-w-none text-lg leading-relaxed text-foreground"
+                v-html="post.content"
+            ></div>
         </article>
     </div>
 </template>

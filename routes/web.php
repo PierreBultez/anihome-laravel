@@ -36,8 +36,14 @@ Route::get('dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    Route::post('media/upload', [\App\Http\Controllers\Admin\MediaController::class, 'upload'])->name('media.upload');
+    Route::delete('services/bulk', [\App\Http\Controllers\Admin\ServiceController::class, 'bulkDestroy'])->name('services.bulk-destroy');
     Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
+    
+    Route::delete('posts/bulk', [\App\Http\Controllers\Admin\PostController::class, 'bulkDestroy'])->name('posts.bulk-destroy');
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
+    
+    Route::delete('photos/bulk', [PhotoController::class, 'bulkDestroy'])->name('photos.bulk-destroy');
     Route::resource('photos', PhotoController::class);
 });
 

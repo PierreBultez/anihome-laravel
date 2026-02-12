@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { Pencil, Plus, Trash2 } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
     Table,
     TableBody,
@@ -13,8 +14,9 @@ import {
 import AppLayout from '@/layouts/AppLayout.vue';
 import { create, destroy, edit } from '@/routes/admin/photos';
 import { type BreadcrumbItem } from '@/types';
+import { computed, ref } from 'vue';
 
-defineProps<{
+const props = defineProps<{
     photos: Array<{
         id: number;
         title: string | null;
@@ -30,9 +32,44 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+const selectedIds = ref<number[]>([]);
+
+const allSelected = computed(() => {
+    return props.photos.length > 0 && selectedIds.value.length === props.photos.length;
+});
+
+const toggleAll = () => {
+    if (allSelected.value) {
+        selectedIds.value = [];
+    } else {
+        selectedIds.value = props.photos.map((p) => p.id);
+    }
+};
+
+const toggleSelection = (id: number) => {
+    if (selectedIds.value.includes(id)) {
+        selectedIds.value = selectedIds.value.filter((i) => i !== id);
+    } else {
+        selectedIds.value = [...selectedIds.value, id];
+    }
+};
+
 const deletePhoto = (id: number) => {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette photo ?')) {
         router.delete(destroy(id));
+    }
+};
+
+const deleteSelected = () => {
+    if (confirm(`Êtes-vous sûr de vouloir supprimer ${selectedIds.value.length} photos ?`)) {
+        router.delete('/admin/photos/bulk', {
+            data: {
+                ids: selectedIds.value,
+            },
+            onSuccess: () => {
+                selectedIds.value = [];
+            },
+        });
     }
 };
 </script>
@@ -44,18 +81,35 @@ const deletePhoto = (id: number) => {
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl font-bold">Album Photo</h1>
-                <Button as-child>
-                    <Link :href="create()">
-                        <Plus class="mr-2 h-4 w-4" />
-                        Ajouter une Photo
-                    </Link>
-                </Button>
+                <div class="flex items-center gap-2">
+                    <Button 
+                        v-if="selectedIds.length > 0" 
+                        variant="destructive" 
+                        size="sm"
+                        @click="deleteSelected"
+                    >
+                        <Trash2 class="mr-2 h-4 w-4" />
+                        Supprimer ({{ selectedIds.length }})
+                    </Button>
+                    <Button as-child>
+                        <Link :href="create()">
+                            <Plus class="mr-2 h-4 w-4" />
+                            Ajouter une Photo
+                        </Link>
+                    </Button>
+                </div>
             </div>
 
             <div class="rounded-md border">
                 <Table>
                     <TableHeader>
                         <TableRow>
+                            <TableHead class="w-[50px]">
+                                <Checkbox 
+                                    :checked="allSelected"
+                                    @update:checked="toggleAll()"
+                                />
+                            </TableHead>
                             <TableHead class="w-25">Aperçu</TableHead>
                             <TableHead>Titre</TableHead>
                             <TableHead class="w-20">Ordre</TableHead>
@@ -64,6 +118,12 @@ const deletePhoto = (id: number) => {
                     </TableHeader>
                     <TableBody>
                         <TableRow v-for="photo in photos" :key="photo.id">
+                            <TableCell>
+                                <Checkbox 
+                                    :checked="selectedIds.includes(photo.id)"
+                                    @update:checked="() => toggleSelection(photo.id)"
+                                />
+                            </TableCell>
                             <TableCell>
                                 <img
                                     :src="photo.path"
