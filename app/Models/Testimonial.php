@@ -9,7 +9,6 @@ class Testimonial extends Model
 {
     use HasFactory;
 
-    public mixed $photo_path;
     protected $fillable = [
         'name',
         'content',
