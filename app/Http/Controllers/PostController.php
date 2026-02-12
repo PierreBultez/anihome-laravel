@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Post;
 use Inertia\Inertia;
 
@@ -11,6 +12,7 @@ class PostController extends Controller
     {
         return Inertia::render('Posts/Index', [
             'posts' => Post::latest('published_at')->get(),
+            'faqs' => Faq::where('is_active', true)->orderBy('order')->get(),
         ]);
     }
 

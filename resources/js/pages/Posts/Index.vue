@@ -8,6 +8,8 @@ import {
     CardContent,
     CardFooter,
 } from '@/components/ui/card';
+import FaqSection from '@/components/sections/FaqSection.vue';
+import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
@@ -20,6 +22,10 @@ defineProps<{
         content: string;
         published_at: string;
         image_path: string | null;
+    }>;
+    faqs: Array<{
+        question: string;
+        answer: string;
     }>;
 }>();
 
@@ -92,4 +98,10 @@ const stripHtml = (html: string) => {
             </p>
         </div>
     </div>
+    
+    <FaqSection :faqs="faqs" />
+
+    <ProfessionalCareSection 
+        text="Restez informé avec Anihome, votre expert en garde d'animaux à Courthézon et ses environs (Orange, Sorgues, Bédarrides). Des conseils de pros pour vos compagnons."
+    />
 </template>

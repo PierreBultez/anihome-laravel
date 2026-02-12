@@ -16,6 +16,10 @@ defineProps<{
         description: string;
         image_path: string | null;
     }>;
+    faqs: Array<{
+        question: string;
+        answer: string;
+    }>;
 }>();
 </script>
 
@@ -184,7 +188,7 @@ defineProps<{
             </div>
         </section>
 
-        <FaqSection />
+        <FaqSection :faqs="faqs" />
 
         <section class="bg-muted/30 py-16 text-center">
             <div class="container mx-auto px-4">
@@ -201,6 +205,8 @@ defineProps<{
             </div>
         </section>
 
-        <ProfessionalCareSection />
+        <ProfessionalCareSection 
+            text="Découvrez nos prestations de garde d'animaux à Courthézon et dans le Vaucluse. Promenades, visites à domicile, soins... Anihome s'adapte à vos besoins pour le bonheur de vos compagnons."
+        />
     </div>
 </template>

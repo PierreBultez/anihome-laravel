@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import FaqSection from '@/components/sections/FaqSection.vue';
+import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
@@ -11,6 +13,10 @@ defineProps<{
         content: string;
         image_path: string | null;
     };
+    faqs: Array<{
+        question: string;
+        answer: string;
+    }>;
 }>();
 </script>
 
@@ -38,4 +44,10 @@ defineProps<{
             v-html="service.content"
         ></div>
     </div>
+
+    <FaqSection :faqs="faqs" />
+    
+    <ProfessionalCareSection 
+        text="Un service de qualité pour vos animaux à Courthézon. Nous intervenons rapidement à Orange, Sorgues et alentours pour assurer le bien-être de votre compagnon."
+    />
 </template>

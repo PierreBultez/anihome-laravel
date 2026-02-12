@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
@@ -10,6 +11,10 @@ defineProps<{
         id: number;
         title: string;
         path: string;
+    }>;
+    faqs: Array<{
+        question: string;
+        answer: string;
     }>;
 }>();
 </script>
@@ -95,6 +100,10 @@ defineProps<{
             </div>
         </div>
 
-        <ProfessionalCareSection />
+        <FaqSection :faqs="faqs" />
+
+        <ProfessionalCareSection 
+            text="Vous souhaitez que votre animal fasse partie de notre grande famille ? Contactez Anihome pour une garde personnalisée à Courthézon et ses environs."
+        />
     </div>
 </template>

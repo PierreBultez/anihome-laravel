@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
 import { Button } from '@/components/ui/button';
+
+defineProps<{
+    text?: string;
+}>();
 </script>
 
 <template>
@@ -19,10 +23,7 @@ import { Button } from '@/components/ui/button';
             <p
                 class="mx-auto mb-10 max-w-4xl text-lg leading-relaxed text-muted-foreground"
             >
-                Des dizaines de clients nous font confiance pour garder leur
-                animal de compagnie à Courthézon, Jonquières, Chateauneuf du
-                pape, Orange, Bedarrides, Sorgues, … Faites comme eux et partez
-                tranquille.
+                {{ text || 'Des dizaines de clients nous font confiance pour garder leur animal de compagnie à Courthézon, Jonquières, Chateauneuf du pape, Orange, Bedarrides, Sorgues, … Faites comme eux et partez tranquille.' }}
             </p>
             <Button size="lg" as-child class="rounded-full px-8 py-6 text-lg">
                 <Link href="/contact">NOUS CONTACTER</Link>

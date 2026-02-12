@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
@@ -54,4 +55,8 @@ defineProps<{
             ></div>
         </article>
     </div>
+    
+    <ProfessionalCareSection 
+        text="Besoin de faire garder votre animal pendant vos vacances ? Anihome est à votre service à Courthézon, Orange et dans tout le Vaucluse."
+    />
 </template>

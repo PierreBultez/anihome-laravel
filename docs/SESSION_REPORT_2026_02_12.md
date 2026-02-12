@@ -28,12 +28,54 @@ Ce rapport détaille les correctifs techniques et les améliorations d'interface
 - **Gestion des Fallbacks** : Mise en place d'une image par défaut (`Services_bloc.webp`) si aucune photo n'est associée au service, évitant les zones vides.
 - **Amélioration Visuelle** : Ajout d'un effet de zoom (`scale-110`) au survol des cartes pour une expérience utilisateur plus dynamique.
 
-## 3. Tests & Qualité
+## 3. Implémentation du Système de Témoignages (Testimonials)
+
+### ⚙️ Backend (Laravel)
+- **Modèle & Migration** : Création de la table `testimonials` avec les champs `name`, `content`, `photo_path`, `is_active`.
+- **Contrôleur** : Implémentation d'un CRUD complet dans `Admin/TestimonialController` incluant la gestion de l'upload d'images et la suppression en masse.
+- **Routes** : Ajout des routes de ressources et de suppression groupée dans `web.php`.
+
+### 🖥 Interface Admin (Inertia/Vue)
+- **Pages** : Création des vues `Index`, `Create` et `Edit` pour la gestion des témoignages.
+- **Navigation** : Ajout d'une entrée "Témoignages" avec icône dans la sidebar d'administration.
+
+### 🌐 Frontend (Public)
+- **Page d'Accueil** : Mise à jour du `HomeController` pour injecter les témoignages actifs.
+- **Affichage** : Intégration d'une section "Témoignages" responsive sur la page d'accueil, affichant la photo (ou une initiale par défaut), le nom et le message du client.
+
+## 4. Implémentation de la FAQ Dynamique
+
+### ⚙️ Backend (Laravel)
+- **Modèle & Migration** : Création de la table `faqs` (question, answer, is_active, order).
+- **Seeder** : Reprise automatique des questions/réponses existantes via `FaqSeeder`.
+- **Contrôleur** : CRUD complet dans `Admin/FaqController`.
+- **API** : Injection des données FAQ actives dans tous les contrôleurs publics (`HomeController`, `ServiceController`, `PostController`, `GalleryController`, `ContactController`).
+
+### 🖥 Interface Admin (Inertia/Vue)
+- **Gestion** : Pages complètes pour lister, créer, modifier et supprimer les FAQ.
+- **Navigation** : Ajout du lien "FAQ" dans la sidebar.
+
+### 🌐 Frontend (Public)
+- **Composant** : Refonte de `FaqSection.vue` pour accepter les données dynamiques via props.
+- **Intégration** : Déploiement de la FAQ sur l'ensemble du site (Accueil, Services, Tarifs, Album, Actualités, Contact).
+
+## 5. SEO Local & Optimisation
+
+### 📍 Professional Care Section
+- **Composant** : Création/Mise à jour de `ProfessionalCareSection.vue` pour supporter un texte paramétrable.
+- **Déploiement** : Intégration sur toutes les pages principales avec des variantes de textes ciblant le référencement local (Courthézon, Orange, Vaucluse).
+
+### 📰 Page "Qui sommes-nous ?"
+- **Dynamisme** : Affichage automatique des 3 derniers articles de blog.
+- **Design** : Harmonisation de l'affichage des cartes articles avec la page Actualités.
+
+## 6. Tests & Qualité
 
 ### ✅ Tests Automatisés
 - **Nouveau Test** : Création de `tests/Feature/Admin/PhotoTest.php` pour couvrir les fonctionnalités d'administration de l'album (Liste, Upload, Suppression en masse).
-- **Validation** : Exécution réussie de la suite de tests pour les Services, les Articles et les Photos (8 tests passés, 48 assertions).
-- **Formatage** : Application de Prettier sur l'ensemble des fichiers modifiés pour garantir la propreté du code.
+- **Tests Témoignages** : Ajout de `tests/Feature/Admin/TestimonialTest.php` couvrant l'ensemble du CRUD et les permissions admin.
+- **Tests FAQ** : Ajout de `tests/Feature/Admin/FaqTest.php` validant la gestion des questions/réponses.
+- **Validation Globale** : Exécution réussie de la suite de tests (Services, Articles, Photos, Témoignages, FAQ).
 
 ---
 *Fin du rapport.*

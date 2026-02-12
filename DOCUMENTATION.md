@@ -33,27 +33,28 @@ Le projet a franchi des étapes importantes de stabilisation. Le socle technique
 
 #### 🏠 ACCUEIL
 - [X] Ajouter des liens vers les services avec icônes et animations au survol.
-- [ ] Système de **Témoignages** : CRUD admin (Nom, Photo, Message) et affichage dynamique.
+- [X] Système de **Témoignages** : CRUD admin (Nom, Photo, Message) et affichage dynamique.
 - [X] Section "Service complet" : Mettre en avant 3 services sélectionnés via une option "Featured" en admin.
 
 #### ℹ️ QUI SOMMES NOUS ?
-- [ ] Affichage dynamique des 3 ou 4 derniers articles de blog.
-- [ ] Intégration de la section **"Garde d’animaux professionnelle"** (SEO Local) présente avant le footer sur toutes les pages avec textes différenciés.
+- [X] Affichage dynamique des 3 ou 4 derniers articles de blog.
+- [X] Intégration de la section **"Garde d’animaux professionnelle"** (SEO Local) présente avant le footer sur toutes les pages avec textes différenciés.
 
 #### ❓ FAQ
-- [ ] Création d'un CRUD **FAQ** complet en administration.
-- [ ] Intégration dynamique de la FAQ sur la page d'accueil et les pages de détails des services.
+- [X] Création d'un CRUD **FAQ** complet en administration.
+- [X] Intégration dynamique de la FAQ sur la page d'accueil et les pages de détails des services.
 
 #### 🛠 PAGES DÉTAILS DES SERVICES
 - [ ] Ajout de la section Témoignages (dynamique).
-- [ ] Ajout de la section FAQ (dynamique).
-- [ ] Ajout de la section "Garde d’animaux professionnelle".
+- [X] Ajout de la section FAQ (dynamique).
+- [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 🖼 ALBUM
 - [ ] Ajout d'une visionneuse (Lightbox) pour afficher les photos en pleine taille au clic.
+- [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 📰 ACTUALITÉ
-- [ ] Ajout de la section "Garde d’animaux professionnelle".
+- [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 🔗 LIENS DU FOOTER
 - [ ] Créer la page "Politique de confidentialité" et "Mentions légales" (contenu standard).

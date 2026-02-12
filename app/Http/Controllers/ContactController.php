@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Mail\ContactConfirmation;
 use App\Mail\ContactMessage;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
@@ -12,7 +13,9 @@ class ContactController extends Controller
 {
     public function show()
     {
-        return Inertia::render('Contact');
+        return Inertia::render('Contact', [
+            'faqs' => Faq::where('is_active', true)->orderBy('order')->get(),
+        ]);
     }
 
     public function submit(ContactRequest $request)

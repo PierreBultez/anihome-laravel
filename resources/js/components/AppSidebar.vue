@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, Image, Newspaper, Briefcase } from 'lucide-vue-next';
+import { LayoutGrid, Image, Newspaper, Briefcase, MessageSquareQuote, HelpCircle } from 'lucide-vue-next';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
 import NavUser from '@/components/NavUser.vue';
@@ -37,6 +37,16 @@ const mainNavItems: NavItem[] = [
         title: 'Album',
         href: '/admin/photos',
         icon: Image,
+    },
+    {
+        title: 'Témoignages',
+        href: '/admin/testimonials',
+        icon: MessageSquareQuote,
+    },
+    {
+        title: 'FAQ',
+        href: '/admin/faqs',
+        icon: HelpCircle,
     },
 ];
 

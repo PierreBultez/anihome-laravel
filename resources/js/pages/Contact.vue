@@ -17,6 +17,13 @@ import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
 
+defineProps<{
+    faqs: Array<{
+        question: string;
+        answer: string;
+    }>;
+}>();
+
 const form = useForm({
     firstname: '',
     name: '',
@@ -247,7 +254,7 @@ const submit = () => {
             </div>
         </div>
 
-        <FaqSection />
+        <FaqSection :faqs="faqs" />
 
         <section class="bg-muted/30 py-16 text-center">
             <div class="container mx-auto px-4">
@@ -264,6 +271,8 @@ const submit = () => {
             </div>
         </section>
 
-        <ProfessionalCareSection />
+        <ProfessionalCareSection 
+            text="Contactez Anihome, votre service de garde d'animaux professionnel. Nous nous déplaçons à Courthézon, Orange, Sorgues, Bédarrides pour prendre soin de vos compagnons."
+        />
     </div>
 </template>

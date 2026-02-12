@@ -1,10 +1,43 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 import FaqSection from '@/components/sections/FaqSection.vue';
+import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardContent,
+    CardFooter,
+} from '@/components/ui/card';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
+
+const props = defineProps<{
+    latestPosts: Array<{
+        id: number;
+        title: string;
+        slug: string;
+        published_at: string;
+        image_path: string | null;
+        content: string; // Used for excerpt if description not available
+    }>;
+    faqs: Array<{
+        question: string;
+        answer: string;
+    }>;
+}>();
+
+const formatDate = (date: string) => {
+    return format(new Date(date), 'dd MMM yyyy', { locale: fr });
+};
+
+const stripHtml = (html: string) => {
+    return html.replace(/<[^>]*>?/gm, '');
+};
 </script>
 
 <template>
@@ -97,7 +130,7 @@ defineOptions({ layout: MainLayout });
             </div>
         </div>
 
-        <FaqSection />
+        <FaqSection :faqs="faqs" />
 
         <!-- CTA Questions -->
         <section class="bg-muted/30 py-16 text-center">
@@ -116,7 +149,7 @@ defineOptions({ layout: MainLayout });
         </section>
 
         <!-- News Teaser -->
-        <section class="bg-background py-16 text-center">
+        <section class="bg-background py-16 text-center" v-if="latestPosts.length > 0">
             <div class="container mx-auto px-4">
                 <h2 class="mb-4 text-3xl font-bold text-primary">
                     L’actualité animale
@@ -129,9 +162,42 @@ defineOptions({ layout: MainLayout });
                     animale sur notre blog.
                 </p>
 
-                <!-- Dynamic Posts Placeholders (Real posts will come from DB in Blog/Index, here we just link) -->
-                <div class="mb-10">
-                    <!-- Ideally fetch latest 3 posts here passed as props -->
+                <!-- Dynamic Posts -->
+                <div class="mb-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <Card
+                        v-for="post in latestPosts"
+                        :key="post.id"
+                        class="flex h-full flex-col text-left transition-shadow hover:shadow-lg"
+                    >
+                        <div
+                            v-if="post.image_path"
+                            class="h-48 overflow-hidden rounded-t-xl"
+                        >
+                            <img
+                                :src="`/storage/${post.image_path}`"
+                                :alt="post.title"
+                                class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                            />
+                        </div>
+                        <CardHeader>
+                            <div class="mb-2 text-sm text-muted-foreground">
+                                {{ formatDate(post.published_at) }}
+                            </div>
+                            <CardTitle class="line-clamp-2">{{ post.title }}</CardTitle>
+                        </CardHeader>
+                        <CardContent class="grow">
+                            <p class="line-clamp-3 text-muted-foreground">
+                                {{ stripHtml(post.content) }}
+                            </p>
+                        </CardContent>
+                        <CardFooter>
+                            <Button variant="outline" as-child class="w-full">
+                                <Link :href="`/actualite/${post.slug}`"
+                                    >Lire la suite</Link
+                                >
+                            </Button>
+                        </CardFooter>
+                    </Card>
                 </div>
 
                 <Button
@@ -144,5 +210,10 @@ defineOptions({ layout: MainLayout });
                 </Button>
             </div>
         </section>
+
+        <!-- Garde Professionnelle Section (SEO Local) -->
+        <ProfessionalCareSection 
+            text="Anihome propose ses services de garde d'animaux, de visite à domicile et de promenade canine dans le Vaucluse (84). Nous intervenons principalement sur les communes de Courthézon, Orange, Jonquières, Bédarrides, Sorgues et leurs alentours. Faire appel à un professionnel déclaré et assuré, c'est la garantie d'un service de qualité pour le bien-être de vos compagnons."
+        />
     </div>
 </template>

@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import { Dog, Cat, Rabbit, Footprints, Home, Siren, Stethoscope, Heart } from 'lucide-vue-next';
+import {
+    Dog,
+    Cat,
+    Rabbit,
+    Footprints,
+    Home,
+    Siren,
+    Stethoscope,
+    Heart,
+} from 'lucide-vue-next';
+import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';
 import MainLayout from '@/layouts/MainLayout.vue';
@@ -20,6 +30,16 @@ const props = defineProps<{
         slug: string;
         description: string;
         image_path: string | null;
+    }>;
+    testimonials: Array<{
+        id: number;
+        name: string;
+        content: string;
+        photo_path: string | null;
+    }>;
+    faqs: Array<{
+        question: string;
+        answer: string;
     }>;
 }>();
 
@@ -192,17 +212,26 @@ const iconMap: Record<string, any> = {
         <!-- Quick Service Links Grid -->
         <section class="bg-background py-10" v-if="services.length > 0">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+                <div
+                    class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6"
+                >
                     <Link
                         v-for="service in services"
                         :key="service.id"
                         :href="`/nos-services/${service.slug}`"
                         class="group flex flex-col items-center gap-3 rounded-2xl border border-primary/10 bg-muted/30 p-6 transition-all duration-300 hover:-translate-y-2 hover:bg-primary hover:shadow-xl"
                     >
-                        <div class="rounded-full bg-primary/10 p-4 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white">
-                            <component :is="iconMap[service.icon] || Dog" class="h-8 w-8" />
+                        <div
+                            class="rounded-full bg-primary/10 p-4 text-primary transition-colors duration-300 group-hover:bg-white/20 group-hover:text-white"
+                        >
+                            <component
+                                :is="iconMap[service.icon] || Dog"
+                                class="h-8 w-8"
+                            />
                         </div>
-                        <span class="font-heading text-lg font-semibold text-primary transition-colors duration-300 group-hover:text-white text-center">
+                        <span
+                            class="text-center font-heading text-lg font-semibold text-primary transition-colors duration-300 group-hover:text-white"
+                        >
                             {{ service.title }}
                         </span>
                     </Link>
@@ -272,6 +301,54 @@ const iconMap: Record<string, any> = {
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-muted/30 py-20" v-if="testimonials.length > 0">
+            <div class="container mx-auto px-4">
+                <h2 class="mb-6 text-center text-3xl font-bold text-primary">
+                    Témoignages
+                </h2>
+                <div class="mb-12 flex justify-center">
+                    <img
+                        src="/images/line_separator.png"
+                        alt="Separator"
+                        class="h-6 w-auto opacity-50"
+                    />
+                </div>
+                
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div
+                        v-for="testimonial in testimonials"
+                        :key="testimonial.id"
+                        class="rounded-2xl border bg-card p-6 shadow-sm"
+                    >
+                        <div class="flex items-start gap-4">
+                            <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-primary/10">
+                                <img 
+                                    v-if="testimonial.photo_path" 
+                                    :src="`/storage/${testimonial.photo_path}`" 
+                                    :alt="testimonial.name"
+                                    class="h-full w-full object-cover"
+                                />
+                                <div v-else class="flex h-full w-full items-center justify-center text-primary">
+                                    <span class="text-xl font-bold">{{ testimonial.name.charAt(0) }}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-primary">{{ testimonial.name }}</h3>
+                                <div class="mt-2 text-muted-foreground">
+                                    <p class="whitespace-pre-wrap text-sm leading-relaxed">
+                                        {{ testimonial.content }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <FaqSection :faqs="faqs" />
 
         <!-- Garde Professionnelle Section -->
         <ProfessionalCareSection />
