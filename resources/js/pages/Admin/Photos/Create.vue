@@ -28,7 +28,7 @@ const form = useForm({
 const imagePreview = ref<string | null>(null);
 
 const submit = () => {
-    form.post(store(), {
+    form.post(store.url(), {
         forceFormData: true,
     });
 };

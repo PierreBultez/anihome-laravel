@@ -50,7 +50,7 @@ const editor = useEditor({
     ],
     editorProps: {
         attributes: {
-            class: 'prose dark:prose-invert max-w-none focus:outline-hidden min-h-[300px] p-4',
+            class: 'prose dark:prose-invert max-w-none focus:outline-hidden min-h-75 p-4',
         },
     },
     onUpdate: () => {
@@ -65,7 +65,7 @@ watch(
         if (isSame) {
             return;
         }
-        editor.value?.commands.setContent(value, false);
+        editor.value?.commands.setContent(value, { emitUpdate: false });
     },
 );
 

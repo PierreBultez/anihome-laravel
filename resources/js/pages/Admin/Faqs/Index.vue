@@ -124,7 +124,7 @@ const toggleStatus = (faq: { id: number; is_active: boolean }) => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[50px]">
+                            <TableHead class="w-12.5">
                                 <Checkbox
                                     :model-value="allSelected"
                                     @update:model-value="
@@ -132,10 +132,10 @@ const toggleStatus = (faq: { id: number; is_active: boolean }) => {
                                     "
                                 />
                             </TableHead>
-                            <TableHead class="w-[50px]">Ordre</TableHead>
+                            <TableHead class="w-12.5">Ordre</TableHead>
                             <TableHead>Question</TableHead>
                             <TableHead>Réponse</TableHead>
-                            <TableHead class="w-[100px]">Statut</TableHead>
+                            <TableHead class="w-25">Statut</TableHead>
                             <TableHead class="text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -165,7 +165,7 @@ const toggleStatus = (faq: { id: number; is_active: boolean }) => {
                             <TableCell>
                                 <div class="flex items-center space-x-2">
                                     <Switch
-                                        :model-value="!!faq.is_active"
+                                        :model-value="faq.is_active"
                                         @update:model-value="
                                             toggleStatus(faq)
                                         "

@@ -26,6 +26,8 @@ const props = defineProps<{
         content: string;
         is_active: boolean;
         image_path: string | null;
+        icon: string | null;
+        is_featured: boolean;
     };
 }>();
 
@@ -46,8 +48,8 @@ const form = useForm({
     description: props.service.description,
     content: props.service.content,
     icon: props.service.icon || 'Dog',
-    is_active: !!props.service.is_active,
-    is_featured: !!props.service.is_featured,
+    is_active: props.service.is_active,
+    is_featured: props.service.is_featured,
     image: null as File | null,
 });
 
@@ -82,7 +84,7 @@ const removeImage = () => {
 };
 
 const submit = () => {
-    form.post(update(props.service.id), {
+    form.post(update.url(props.service.id), {
         forceFormData: true,
     });
 };

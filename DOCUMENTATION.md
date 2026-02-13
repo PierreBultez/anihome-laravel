@@ -50,14 +50,14 @@ Le projet a franchi des étapes importantes de stabilisation. Le socle technique
 - [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 🖼 ALBUM
-- [ ] Ajout d'une visionneuse (Lightbox) pour afficher les photos en pleine taille au clic.
+- [X] Ajout d'une visionneuse (Lightbox) pour afficher les photos en pleine taille au clic.
 - [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 📰 ACTUALITÉ
 - [X] Ajout de la section "Garde d’animaux professionnelle".
 
 #### 🔗 LIENS DU FOOTER
-- [ ] Créer la page "Politique de confidentialité" et "Mentions légales" (contenu standard).
+- [X] Créer la page "Politique de confidentialité" et "Mentions légales" (contenu standard).
 
 ---
 *Dernière mise à jour : 12/02/2026*

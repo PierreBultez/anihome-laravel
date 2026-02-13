@@ -35,7 +35,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(update(props.photo.id), {
+    form.post(update.url(props.photo.id), {
         forceFormData: true,
     });
 };
@@ -74,7 +74,7 @@ const handleFileChange = (e: Event) => {
                         <img
                             :src="photo.path"
                             class="h-32 w-auto rounded bg-muted object-cover"
-                        />
+                            alt=""/>
                     </div>
                     <Input
                         id="image"

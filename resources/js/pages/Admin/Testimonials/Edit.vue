@@ -36,7 +36,7 @@ const form = useForm({
     _method: 'patch',
     name: props.testimonial.name,
     content: props.testimonial.content,
-    is_active: !!props.testimonial.is_active,
+    is_active: props.testimonial.is_active,
     photo: null as File | null,
 });
 
@@ -74,7 +74,7 @@ const removeImage = () => {
 };
 
 const submit = () => {
-    form.post(update(props.testimonial.id), {
+    form.post(update.url(props.testimonial.id), {
         forceFormData: true,
     });
 };
@@ -138,7 +138,7 @@ const submit = () => {
 
                 <div class="space-y-2">
                     <Label for="content">Témoignage</Label>
-                    <Textarea id="content" v-model="form.content" required placeholder="Super service, je recommande !" class="min-h-[150px]" />
+                    <Textarea id="content" v-model="form.content" required placeholder="Super service, je recommande !" class="min-h-37.5" />
                     <div
                         v-if="form.errors.content"
                         class="text-sm text-red-500"

@@ -28,7 +28,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(store());
+    form.post(store.url());
 };
 </script>
 
@@ -52,7 +52,7 @@ const submit = () => {
 
                 <div class="space-y-2">
                     <Label for="answer">Réponse</Label>
-                    <Textarea id="answer" v-model="form.answer" required placeholder="La réponse..." class="min-h-[150px]" />
+                    <Textarea id="answer" v-model="form.answer" required placeholder="La réponse..." class="min-h-37.5" />
                     <div
                         v-if="form.errors.answer"
                         class="text-sm text-red-500"

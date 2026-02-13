@@ -22,7 +22,7 @@ defineProps<{
                     class="h-6 w-auto opacity-50"
                 />
             </div>
-            
+
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <div
                     v-for="testimonial in testimonials"
@@ -30,10 +30,10 @@ defineProps<{
                     class="rounded-2xl border bg-card p-6 shadow-sm"
                 >
                     <div class="flex items-start gap-4">
-                        <div class="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full bg-primary/10">
-                            <img 
-                                v-if="testimonial.photo_path" 
-                                :src="`/storage/${testimonial.photo_path}`" 
+                        <div class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-primary/10">
+                            <img
+                                v-if="testimonial.photo_path"
+                                :src="`/storage/${testimonial.photo_path}`"
                                 :alt="testimonial.name"
                                 class="h-full w-full object-cover"
                             />

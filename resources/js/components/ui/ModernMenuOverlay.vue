@@ -25,7 +25,7 @@ watch(isOpen, (value) => {
         <!-- Modern Hamburger Button -->
         <button
             @click="toggle"
-            class="relative z-[60] flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full border border-primary/10 transition-all focus:outline-none"
+            class="relative z-110 flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full border border-primary/10 transition-all focus:outline-none"
             :class="[
                 isOpen ? 'bg-white hover:bg-white/90' : 'bg-background hover:bg-primary/5'
             ]"
@@ -56,7 +56,7 @@ watch(isOpen, (value) => {
         >
             <div
                 v-if="isOpen"
-                class="fixed inset-0 z-50 flex h-svh w-screen flex-col items-center justify-center bg-primary text-primary-foreground"
+                class="fixed inset-0 z-100 flex h-svh w-screen flex-col items-center justify-center bg-primary text-primary-foreground"
             >
                 <!-- Decorative Elements -->
                 <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-10">

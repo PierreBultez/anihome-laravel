@@ -34,12 +34,12 @@ const form = useForm({
     _method: 'patch',
     question: props.faq.question,
     answer: props.faq.answer,
-    is_active: !!props.faq.is_active,
+    is_active: props.faq.is_active,
     order: props.faq.order,
 });
 
 const submit = () => {
-    form.post(update(props.faq.id));
+    form.post(update.url(props.faq.id));
 };
 </script>
 
@@ -63,7 +63,7 @@ const submit = () => {
 
                 <div class="space-y-2">
                     <Label for="answer">Réponse</Label>
-                    <Textarea id="answer" v-model="form.answer" required class="min-h-[150px]" />
+                    <Textarea id="answer" v-model="form.answer" required class="min-h-37.5" />
                     <div
                         v-if="form.errors.answer"
                         class="text-sm text-red-500"

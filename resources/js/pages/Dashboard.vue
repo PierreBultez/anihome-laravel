@@ -38,7 +38,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                 </div>
             </div>
             <div
-                class="relative min-h-[100vh] flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min"
+                class="relative min-h-screen flex-1 rounded-xl border border-sidebar-border/70 md:min-h-min"
             >
                 <PlaceholderPattern />
             </div>

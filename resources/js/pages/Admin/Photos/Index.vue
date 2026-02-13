@@ -111,7 +111,7 @@ const deleteSelected = () => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[50px]">
+                            <TableHead class="w-12.5">
                                 <Checkbox
                                     :model-value="allSelected"
                                     @update:model-value="toggleAll()"

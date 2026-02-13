@@ -68,13 +68,10 @@ const removeImage = () => {
     imagePreview.value = null;
     const input = document.getElementById('image') as HTMLInputElement;
     if (input) input.value = '';
-    // Note: If we want to delete the existing image on the server, we might need a separate flag or action.
-    // For now, null image in PUT request usually means "no change" unless we handle deletion specifically.
-    // Let's assume uploading a new one replaces it. To delete, we might need a 'delete_image' boolean.
 };
 
 const submit = () => {
-    form.post(update(props.post.id), {
+    form.post(update.url(props.post.id), {
         forceFormData: true,
     });
 };

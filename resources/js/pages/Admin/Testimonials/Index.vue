@@ -129,7 +129,7 @@ const getImageUrl = (path: string | null) => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[50px]">
+                            <TableHead class="w-12.5">
                                 <Checkbox
                                     :model-value="allSelected"
                                     @update:model-value="
@@ -137,10 +137,10 @@ const getImageUrl = (path: string | null) => {
                                     "
                                 />
                             </TableHead>
-                            <TableHead class="w-[80px]">Photo</TableHead>
+                            <TableHead class="w-20">Photo</TableHead>
                             <TableHead>Nom</TableHead>
                             <TableHead>Message</TableHead>
-                            <TableHead class="w-[100px]">Statut</TableHead>
+                            <TableHead class="w-25">Statut</TableHead>
                             <TableHead class="text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -182,7 +182,7 @@ const getImageUrl = (path: string | null) => {
                             <TableCell>
                                 <div class="flex items-center space-x-2">
                                     <Switch
-                                        :model-value="!!testimonial.is_active"
+                                        :model-value="testimonial.is_active"
                                         @update:model-value="
                                             toggleStatus(testimonial)
                                         "

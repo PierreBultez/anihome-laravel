@@ -123,7 +123,7 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead class="w-[50px]">
+                            <TableHead class="w-12.5">
                                 <Checkbox
                                     :model-value="allSelected"
                                     @update:model-value="
@@ -133,7 +133,7 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                             </TableHead>
                             <TableHead>Titre</TableHead>
                             <TableHead>Description</TableHead>
-                            <TableHead class="w-[100px]">Statut</TableHead>
+                            <TableHead class="w-25">Statut</TableHead>
                             <TableHead class="text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -162,7 +162,7 @@ const toggleStatus = (service: { id: number; is_active: boolean }) => {
                             <TableCell>
                                 <div class="flex items-center space-x-2">
                                     <Switch
-                                        :model-value="!!service.is_active"
+                                        :model-value="service.is_active"
                                         @update:model-value="
                                             toggleStatus(service)
                                         "

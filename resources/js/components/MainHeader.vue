@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import { Button } from '@/components/ui/button';
 import ModernMenuOverlay from '@/components/ui/ModernMenuOverlay.vue';
@@ -18,21 +18,6 @@ const navItems = [
 const contactItem = { title: 'Contactez nous', href: '/contact' };
 
 const isMobileMenuOpen = ref(false);
-const logoVariant = ref<'default' | 'footer'>('default');
-let logoTimer: ReturnType<typeof setTimeout>;
-
-watch(isMobileMenuOpen, (isOpen: any) => {
-    clearTimeout(logoTimer);
-    if (isOpen) {
-        // Wait for the overlay to cover the screen (animation is 500ms)
-        logoTimer = setTimeout(() => {
-            logoVariant.value = 'footer';
-        }, 400);
-    } else {
-        // Switch back immediately when closing as content is revealed from top
-        logoVariant.value = 'default';
-    }
-});
 </script>
 
 <template>
@@ -42,8 +27,8 @@ watch(isMobileMenuOpen, (isOpen: any) => {
         <div
             class="container mx-auto flex h-24 items-center justify-between px-4 md:px-8"
         >
-            <Link href="/" class="relative z-70 flex items-center gap-2">
-                <AppLogo class="h-16 w-auto" :variant="logoVariant" />
+            <Link href="/" class="flex items-center gap-2">
+                <AppLogo class="h-16 w-auto" />
             </Link>
 
             <!-- Desktop Nav -->
