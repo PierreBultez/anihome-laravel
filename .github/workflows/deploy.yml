@@ -32,7 +32,10 @@ jobs:
 
             # Install JS dependencies and Build assets
             npm install
-            npm run build
+            npm run build:ssr
+
+            # Restart SSR server
+            sudo systemctl restart anihome-ssr
 
             # Database migrations
             php artisan migrate --force

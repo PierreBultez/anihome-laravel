@@ -21,7 +21,7 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -34,10 +34,10 @@ jobs:
           npm install
 
       - name: Run Pint
-        run: ./vendor/bin/pint --test
+        run: composer lint
 
       - name: Format Frontend
-        run: npm run format:check
+        run: npm run format
 
       - name: Lint Frontend
         run: npm run lint

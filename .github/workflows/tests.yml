@@ -23,14 +23,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           tools: composer:v2
-          extensions: sqlite3, gd
+          coverage: xdebug
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -43,11 +43,6 @@ jobs:
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-      - name: Create SQLite Database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
-
       - name: Copy Environment File
         run: cp .env.example .env
 
@@ -58,4 +53,4 @@ jobs:
         run: npm run build
 
       - name: Tests
-        run: php artisan test --compact
+        run: ./vendor/bin/pest
