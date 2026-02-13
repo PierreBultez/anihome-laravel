@@ -13,14 +13,6 @@ class Post extends Model
     /** @use HasFactory<PostFactory> */
     use HasFactory;
 
-    /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $user;
-    /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $published_at;
     protected $fillable = [
         'title',
         'slug',

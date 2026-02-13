@@ -17,11 +17,6 @@ class User extends Authenticatable
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
 
     /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $posts;
-
-    /**
      * The attributes that are mass-assignable.
      *
      * @var list<string>

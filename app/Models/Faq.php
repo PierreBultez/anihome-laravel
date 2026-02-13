@@ -12,10 +12,6 @@ class Faq extends Model
     /** @use HasFactory<FaqFactory> */
     use HasFactory;
 
-    /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $order;
     protected $fillable = [
         'question',
         'answer',
