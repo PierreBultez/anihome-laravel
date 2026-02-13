@@ -6,10 +6,10 @@ Bienvenue dans la documentation technique du projet **Anihome**.
 Anihome est un site vitrine et une plateforme d'administration pour la gestion de services animaliers. Le projet est bâti sur une stack moderne et performante garantissant une expérience utilisateur fluide.
 
 ### Stack Technique
-- **Framework** : Laravel 12
-- **Frontend** : Vue 3 + Inertia.js v2
-- **Styling** : Tailwind CSS v4
-- **Auth** : Laravel Fortify (Headless)
+- **Framework**: Laravel 12
+- **Frontend**: Vue 3 + Inertia.js v2
+- **Styling**: Tailwind CSS v4
+- **Auth**: Laravel Fortify (Headless)
 
 ## 📚 Sommaire de la Documentation
 
@@ -18,7 +18,7 @@ Anihome est un site vitrine et une plateforme d'administration pour la gestion d
 3.  **[Frontend](./docs/FRONTEND.md)** : Guide sur Vue 3, Inertia, Tailwind et Wayfinder.
 4.  **[Développement](./docs/DEVELOPMENT.md)** : Installation, tests et conventions.
 
-## 🛠 État du Projet (12 Février 2026)
+## 🛠 État du Projet (12 février 2026)
 
 Le projet a franchi des étapes importantes de stabilisation. Le socle technique est robuste et les fonctionnalités d'administration de base sont validées par des tests automatisés.
 
@@ -34,9 +34,9 @@ Le projet a franchi des étapes importantes de stabilisation. Le socle technique
 #### 🏠 ACCUEIL
 - [X] Ajouter des liens vers les services avec icônes et animations au survol.
 - [X] Système de **Témoignages** : CRUD admin (Nom, Photo, Message) et affichage dynamique.
-- [X] Section "Service complet" : Mettre en avant 3 services sélectionnés via une option "Featured" en admin.
+- [X] Section "Service complet" : Mettre en avant trois services sélectionnés via une option "Featured" en admin.
 
-#### ℹ️ QUI SOMMES NOUS ?
+#### ℹ️ QUI SOMMES-NOUS ?
 - [X] Affichage dynamique des 3 ou 4 derniers articles de blog.
 - [X] Intégration de la section **"Garde d’animaux professionnelle"** (SEO Local) présente avant le footer sur toutes les pages avec textes différenciés.
 
