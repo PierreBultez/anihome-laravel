@@ -47,6 +47,10 @@ const submit = () => {
             name="description"
             content="Contactez Anihome pour la garde de vos animaux à Courthézon, Orange, Jonquières. Devis gratuit pour visites à domicile et promenades de chiens."
         />
+        <meta property="og:title" content="Contactez votre Petsitter à Courthézon (84) – Anihome" />
+        <meta property="og:description" content="Demandez un devis gratuit pour la garde de vos animaux à Courthézon et ses environs." />
+        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta property="og:type" content="website" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({

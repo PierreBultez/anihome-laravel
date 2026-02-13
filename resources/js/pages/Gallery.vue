@@ -34,6 +34,10 @@ const openLightbox = (index: number) => {
             name="description"
             content="Découvrez les animaux gardés par Anihome à Courthézon et dans le Vaucluse. Chiens, chats et NAC en photos lors de nos visites à domicile."
         />
+        <meta property="og:title" content="Album Photos : Nos Gardes d'Animaux à Courthézon – Anihome" />
+        <meta property="og:description" content="Découvrez notre grande famille d'animaux choyés à Courthézon et ses environs." />
+        <meta property="og:image" content="https://anihome.fr/images/1000000707-scaled.webp" />
+        <meta property="og:type" content="website" />
     </Head>
 
     <div class="bg-background">

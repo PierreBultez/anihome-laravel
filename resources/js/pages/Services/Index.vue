@@ -37,6 +37,10 @@ defineProps<{
             name="description"
             content="Tous nos services de petsitting à Courthézon, Orange et Vaucluse : visites de chats, promenades de chiens, garde de NAC et reptiles à domicile."
         />
+        <meta property="og:title" content="Services Garde d'Animaux & Promenades à Courthézon (84) – Anihome" />
+        <meta property="og:description" content="Découvrez l'ensemble de nos services professionnels pour vos animaux de compagnie dans le Vaucluse." />
+        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta property="og:type" content="website" />
     </Head>
 
     <div class="bg-background">

@@ -31,6 +31,10 @@ defineProps<{
     <Head>
         <title>{{ service.title }} à Courthézon (84) – Anihome</title>
         <meta name="description" :content="service.description" />
+        <meta property="og:title" :content="service.title + ' à Courthézon (84) – Anihome'" />
+        <meta property="og:description" :content="service.description" />
+        <meta property="og:image" :content="service.image_path ? `https://anihome.fr/storage/${service.image_path}` : 'https://anihome.fr/images/choisir_petsitter.webp'" />
+        <meta property="og:type" content="website" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({

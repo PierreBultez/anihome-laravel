@@ -22,6 +22,10 @@ defineProps<{
     <Head>
         <title>{{ post.title }} – Anihome Petsitter Courthézon</title>
         <meta name="description" :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')" />
+        <meta property="og:title" :content="post.title" />
+        <meta property="og:description" :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')" />
+        <meta property="og:image" :content="post.image_path ? `https://anihome.fr/storage/${post.image_path}` : 'https://anihome.fr/images/choisir_petsitter.webp'" />
+        <meta property="og:type" content="article" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({

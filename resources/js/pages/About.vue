@@ -47,6 +47,10 @@ const stripHtml = (html: string) => {
             name="description"
             content="Découvrez Pierre et Wendy d'Anihome, vos petsitters professionnels à Courthézon (84). Passionnés d'animaux, nous proposons des gardes à domicile et promenades dans le Vaucluse."
         />
+        <meta property="og:title" content="Qui sommes-nous ? Petsitters à Courthézon – Anihome" />
+        <meta property="og:description" content="Faites connaissance avec Pierre et Wendy, vos experts en bien-être animal à Courthézon." />
+        <meta property="og:image" content="https://anihome.fr/images/pets_about_2.webp" />
+        <meta property="og:type" content="profile" />
     </Head>
 
     <div class="bg-background">

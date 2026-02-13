@@ -63,6 +63,11 @@ const iconMap: Record<string, any> = {
             name="description"
             content="Garde d'animaux à domicile à Courthézon & Vaucluse. Pierre & Wendy, petsitters pro pour chiens, chats, NAC. Visites & promenades 🐾 Devis gratuit."
         />
+        <meta property="og:title" content="Anihome : Petsitter à Courthézon (84) - Garde d'animaux" />
+        <meta property="og:description" content="Garde d'animaux de compagnie à domicile. Passionnés et professionnels à Courthézon, Orange et environs." />
+        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://anihome.fr" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({
