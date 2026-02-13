@@ -58,14 +58,57 @@ const iconMap: Record<string, any> = {
 
 <template>
     <Head>
-        <title>
-            Anihome Petsitter à Courthézon – Garde d'animaux de compagnie dans
-            le Vaucluse
-        </title>
+        <title>Anihome : Petsitter à Courthézon (84) - Garde d'animaux 🐾</title>
         <meta
             name="description"
-            content="Garde d'animaux de compagnie à votre domicile. Passionnés, pros. Anihome est votre service de garde d’animaux de compagnie à domicile à Courthézon, près de Orange, dans le Vaucluse. Nous sommes Pierre et Wendy, passionnés et professionnels des animaux, et nous prenons soin de votre compagnon à quatre pattes"
+            content="Garde d'animaux à domicile à Courthézon & Vaucluse. Pierre & Wendy, petsitters pro pour chiens, chats, NAC. Visites & promenades 🐾 Devis gratuit."
         />
+        <component :is="'script'" type="application/ld+json">
+            {{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "LocalBusiness",
+                    "name": "Anihome",
+                    "image": "https://anihome.fr/images/Logo.png",
+                    "@id": "https://anihome.fr/#organization",
+                    "url": "https://anihome.fr",
+                    "telephone": "+33641137520",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Courthézon",
+                        "postalCode": "84350",
+                        "addressRegion": "Vaucluse",
+                        "addressCountry": "FR"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 44.0861,
+                        "longitude": 4.8839
+                    },
+                    "openingHoursSpecification": {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                            "Sunday"
+                        ],
+                        "opens": "08:00",
+                        "closes": "20:00"
+                    },
+                    "areaServed": [
+                        { "@type": "City", "name": "Courthézon" },
+                        { "@type": "City", "name": "Orange" },
+                        { "@type": "City", "name": "Jonquières" },
+                        { "@type": "City", "name": "Bédarrides" },
+                        { "@type": "City", "name": "Sarrians" }
+                    ]
+                })
+            }}
+        </component>
     </Head>
 
     <div class="relative bg-background">
@@ -82,7 +125,7 @@ const iconMap: Record<string, any> = {
                 <h1
                     class="mx-auto mb-8 max-w-7xl font-heading text-4xl tracking-tight text-white sm:text-6xl"
                 >
-                    Garde d’animaux de compagnie à votre domicile
+                    Anihome : Garde d'animaux à domicile à Courthézon & Vaucluse
                 </h1>
 
                 <div class="mb-12 flex justify-center">

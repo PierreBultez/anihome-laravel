@@ -32,10 +32,10 @@ defineProps<{
 
 <template>
     <Head>
-        <title>Nos services – Anihome Petsitter à Courthézon</title>
+        <title>Services Garde d'Animaux & Promenades à Courthézon (84) – Anihome</title>
         <meta
             name="description"
-            content="Le bien-être des animaux. Vous cherchez un petsitter de confiance..."
+            content="Tous nos services de petsitting à Courthézon, Orange et Vaucluse : visites de chats, promenades de chiens, garde de NAC et reptiles à domicile."
         />
     </Head>
 

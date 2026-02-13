@@ -42,10 +42,10 @@ const stripHtml = (html: string) => {
 
 <template>
     <Head>
-        <title>Qui sommes nous ?</title>
+        <title>Qui sommes-nous ? Petsitters à Courthézon – Anihome</title>
         <meta
             name="description"
-            content="Pierre et Wendy. Nous sommes amoureux des animaux, ils font partie de notre vie depuis toujours. Après en avoir recueillis, sauvés, soignés nous avons décidé d'en faire notre métier."
+            content="Découvrez Pierre et Wendy d'Anihome, vos petsitters professionnels à Courthézon (84). Passionnés d'animaux, nous proposons des gardes à domicile et promenades dans le Vaucluse."
         />
     </Head>
 

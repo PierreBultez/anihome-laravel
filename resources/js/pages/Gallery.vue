@@ -29,10 +29,10 @@ const openLightbox = (index: number) => {
 
 <template>
     <Head>
-        <title>Album – Anihome Petsitter à Courthézon</title>
+        <title>Album Photos : Nos Gardes d'Animaux à Courthézon – Anihome</title>
         <meta
             name="description"
-            content="Ils ont croisé notre route, une journée ou une vie... notre album photo."
+            content="Découvrez les animaux gardés par Anihome à Courthézon et dans le Vaucluse. Chiens, chats et NAC en photos lors de nos visites à domicile."
         />
     </Head>
 

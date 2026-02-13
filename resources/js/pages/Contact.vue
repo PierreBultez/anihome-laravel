@@ -42,11 +42,29 @@ const submit = () => {
 
 <template>
     <Head>
-        <title>Contactez-nous – Anihome Petsitter à Courthézon</title>
+        <title>Contactez votre Petsitter à Courthézon (84) – Anihome</title>
         <meta
             name="description"
-            content="Demander un devis. Nous intervenons sur Courthézon, Orange, Jonquières, Bedarrides..."
+            content="Contactez Anihome pour la garde de vos animaux à Courthézon, Orange, Jonquières. Devis gratuit pour visites à domicile et promenades de chiens."
         />
+        <component :is="'script'" type="application/ld+json">
+            {{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "LocalBusiness",
+                    "name": "Anihome",
+                    "url": "https://anihome.fr/contact",
+                    "telephone": "+33641137520",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Courthézon",
+                        "postalCode": "84350",
+                        "addressRegion": "Vaucluse",
+                        "addressCountry": "FR"
+                    }
+                })
+            }}
+        </component>
     </Head>
 
     <div class="bg-background">

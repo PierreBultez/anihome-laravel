@@ -36,10 +36,10 @@ const stripHtml = (html: string) => {
 
 <template>
     <Head>
-        <title>Actualité – Anihome Petsitter à Courthézon</title>
+        <title>Blog Animalier : Conseils & Actualités Petsitting Courthézon – Anihome</title>
         <meta
             name="description"
-            content="L'actualité des animaux. Conseils, astuces, informations..."
+            content="Retrouvez les conseils d'Anihome, petsitter à Courthézon, pour prendre soin de vos animaux. Actualités, astuces et bien-être animal dans le Vaucluse."
         />
     </Head>
 

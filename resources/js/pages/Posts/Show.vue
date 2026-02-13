@@ -20,8 +20,31 @@ defineProps<{
 
 <template>
     <Head>
-        <title>{{ post.title }} – Anihome</title>
-        <meta name="description" :content="post.content.substring(0, 160)" />
+        <title>{{ post.title }} – Anihome Petsitter Courthézon</title>
+        <meta name="description" :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')" />
+        <component :is="'script'" type="application/ld+json">
+            {{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "image": post.image_path ? `https://anihome.fr/storage/${post.image_path}` : "https://anihome.fr/images/Logo.png",
+                    "datePublished": post.published_at,
+                    "author": {
+                        "@type": "Person",
+                        "name": post.user.name
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Anihome",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://anihome.fr/images/Logo.png"
+                        }
+                    }
+                })
+            }}
+        </component>
     </Head>
 
     <div class="container mx-auto px-4 py-12">

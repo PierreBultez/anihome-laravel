@@ -25,11 +25,23 @@ defineProps<{
 
 <template>
     <Head>
-        <title>Tarifs – Anihome Petsitter à Courthézon</title>
+        <title>Tarifs Petsitter à Courthézon (84) – Anihome</title>
         <meta
             name="description"
-            content="Tarifs de base. Devis définitifs réalisés sur-mesure. Garde de chats, chiens, visites..."
+            content="Découvrez les tarifs d'Anihome pour la garde d'animaux à domicile à Courthézon, Orange et Vaucluse. Visites chats dès 10€, chiens dès 12€. Devis gratuit."
         />
+        <component :is="'script'" type="application/ld+json">
+            {{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "PriceSpecification",
+                    "name": "Tarifs Garde d'animaux Anihome",
+                    "priceCurrency": "EUR",
+                    "minPrice": "10",
+                    "description": "Tarifs pour garde de chats, chiens et NAC à domicile dans le Vaucluse."
+                })
+            }}
+        </component>
     </Head>
 
     <div class="bg-background">

@@ -29,8 +29,36 @@ defineProps<{
 
 <template>
     <Head>
-        <title>{{ service.title }} – Anihome</title>
+        <title>{{ service.title }} à Courthézon (84) – Anihome</title>
         <meta name="description" :content="service.description" />
+        <component :is="'script'" type="application/ld+json">
+            {{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "name": service.title,
+                    "description": service.description,
+                    "provider": {
+                        "@type": "LocalBusiness",
+                        "name": "Anihome",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Courthézon",
+                            "postalCode": "84350",
+                            "addressRegion": "Vaucluse",
+                            "addressCountry": "FR"
+                        }
+                    },
+                    "areaServed": [
+                        { "@type": "City", "name": "Courthézon" },
+                        { "@type": "City", "name": "Orange" },
+                        { "@type": "City", "name": "Jonquières" },
+                        { "@type": "City", "name": "Bédarrides" },
+                        { "@type": "City", "name": "Sarrians" }
+                    ]
+                })
+            }}
+        </component>
     </Head>
 
     <div class="container mx-auto px-4 py-12">
