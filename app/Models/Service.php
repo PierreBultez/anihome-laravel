@@ -12,14 +12,6 @@ class Service extends Model
     /** @use HasFactory<ServiceFactory> */
     use HasFactory;
 
-    /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $is_active;
-    /**
-     * @var HigherOrderCollectionProxy|mixed
-     */
-    public mixed $is_featured;
     protected $fillable = [
         'title',
         'slug',
