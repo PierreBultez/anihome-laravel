@@ -56,7 +56,7 @@ const removeImage = () => {
 };
 
 const submit = () => {
-    form.post(store(), {
+    form.post(store.url(), {
         forceFormData: true,
     });
 };
