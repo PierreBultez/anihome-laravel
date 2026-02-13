@@ -18,7 +18,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
 
-const props = defineProps<{
+defineProps<{
     services: Array<{
         id: number;
         title: string;

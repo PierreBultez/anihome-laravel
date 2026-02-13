@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { Head } from '@inertiajs/vue3';
+import { ref } from 'vue';
 import Lightbox from '@/components/Lightbox.vue';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';

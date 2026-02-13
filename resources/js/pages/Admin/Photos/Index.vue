@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
 import { Pencil, Plus, Trash2 } from 'lucide-vue-next';
+import { computed, ref } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
@@ -14,7 +15,6 @@ import {
 import AppLayout from '@/layouts/AppLayout.vue';
 import { create, destroy, edit } from '@/routes/admin/photos';
 import { type BreadcrumbItem } from '@/types';
-import { computed, ref } from 'vue';
 
 const props = defineProps<{
     photos: Array<{

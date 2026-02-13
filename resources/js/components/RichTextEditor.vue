@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useEditor, EditorContent } from '@tiptap/vue-3';
-import StarterKit from '@tiptap/starter-kit';
-import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
+import StarterKit from '@tiptap/starter-kit';
+import { useEditor, EditorContent } from '@tiptap/vue-3';
 import axios from 'axios';
-import { watch, onBeforeUnmount, ref } from 'vue';
 import {
     Bold,
     Italic,
@@ -21,6 +20,7 @@ import {
     Redo,
     Loader2,
 } from 'lucide-vue-next';
+import { watch, onBeforeUnmount, ref } from 'vue';
 import { Button } from '@/components/ui/button';
 
 const props = defineProps<{

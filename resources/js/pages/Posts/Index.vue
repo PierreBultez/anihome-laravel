@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
+import FaqSection from '@/components/sections/FaqSection.vue';
+import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';
 import {
     Card,
@@ -8,8 +10,6 @@ import {
     CardContent,
     CardFooter,
 } from '@/components/ui/card';
-import FaqSection from '@/components/sections/FaqSection.vue';
-import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import FaqSection from '@/components/sections/FaqSection.vue';
 import ProfessionalCareSection from '@/components/sections/ProfessionalCareSection.vue';
 import { Button } from '@/components/ui/button';

@@ -16,7 +16,7 @@ import MainLayout from '@/layouts/MainLayout.vue';
 
 defineOptions({ layout: MainLayout });
 
-const props = defineProps<{
+defineProps<{
     latestPosts: Array<{
         id: number;
         title: string;
