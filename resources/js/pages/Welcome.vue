@@ -130,7 +130,7 @@ const iconMap: Record<string, any> = {
                 <h1
                     class="mx-auto mb-8 max-w-7xl font-heading text-4xl tracking-tight text-white sm:text-6xl"
                 >
-                    Anihome : Garde d'animaux à domicile à Courthézon & Vaucluseeeee
+                    Anihome : Garde d'animaux à domicile à Courthézon & Vaucluse
                 </h1>
 
                 <div class="mb-12 flex justify-center">
