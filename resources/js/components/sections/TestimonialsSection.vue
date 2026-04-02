@@ -18,9 +18,7 @@ const visibleTestimonials = computed(() =>
     props.testimonials.slice(0, visibleCount.value),
 );
 
-const hasMore = computed(
-    () => visibleCount.value < props.testimonials.length,
-);
+const hasMore = computed(() => visibleCount.value < props.testimonials.length);
 
 function loadMore() {
     visibleCount.value += perPage;
