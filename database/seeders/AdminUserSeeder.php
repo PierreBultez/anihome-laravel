@@ -18,7 +18,7 @@ class AdminUserSeeder extends Seeder
             User::create([
                 'name' => 'Pierre Bultez',
                 'email' => 'pierre.bultez@proton.me',
-                'password' => Hash::make('password'), // A changer impérativement après le premier login
+                'password' => Hash::make('NMg0$S^aeh7&HKp4ua4^QrbP'),
                 'email_verified_at' => now(),
             ]);
         }
