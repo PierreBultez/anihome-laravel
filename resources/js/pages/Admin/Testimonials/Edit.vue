@@ -45,7 +45,9 @@ const getImageUrl = (path: string | null) => {
     return path.startsWith('http') ? path : `/storage/${path}`;
 };
 
-const imagePreview = ref<string | null>(getImageUrl(props.testimonial.photo_path));
+const imagePreview = ref<string | null>(
+    getImageUrl(props.testimonial.photo_path),
+);
 
 const handleImageChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -102,7 +104,7 @@ const submit = () => {
                         />
                         <div
                             v-if="imagePreview"
-                            class="relative w-24 h-24 overflow-hidden rounded-full border"
+                            class="relative h-24 w-24 overflow-hidden rounded-full border"
                         >
                             <img
                                 :src="imagePreview"
@@ -130,7 +132,12 @@ const submit = () => {
 
                 <div class="space-y-2">
                     <Label for="name">Nom du client</Label>
-                    <Input id="name" v-model="form.name" required placeholder="Jean Dupont" />
+                    <Input
+                        id="name"
+                        v-model="form.name"
+                        required
+                        placeholder="Jean Dupont"
+                    />
                     <div v-if="form.errors.name" class="text-sm text-red-500">
                         {{ form.errors.name }}
                     </div>
@@ -138,7 +145,13 @@ const submit = () => {
 
                 <div class="space-y-2">
                     <Label for="content">Témoignage</Label>
-                    <Textarea id="content" v-model="form.content" required placeholder="Super service, je recommande !" class="min-h-37.5" />
+                    <Textarea
+                        id="content"
+                        v-model="form.content"
+                        required
+                        placeholder="Super service, je recommande !"
+                        class="min-h-37.5"
+                    />
                     <div
                         v-if="form.errors.content"
                         class="text-sm text-red-500"

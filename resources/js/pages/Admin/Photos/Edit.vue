@@ -74,7 +74,8 @@ const handleFileChange = (e: Event) => {
                         <img
                             :src="photo.path"
                             class="h-32 w-auto rounded bg-muted object-cover"
-                            alt=""/>
+                            alt=""
+                        />
                     </div>
                     <Input
                         id="image"

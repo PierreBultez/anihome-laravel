@@ -56,25 +56,35 @@ const submit = () => {
                 <div class="space-y-2">
                     <Label for="question">Question</Label>
                     <Input id="question" v-model="form.question" required />
-                    <div v-if="form.errors.question" class="text-sm text-red-500">
+                    <div
+                        v-if="form.errors.question"
+                        class="text-sm text-red-500"
+                    >
                         {{ form.errors.question }}
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     <Label for="answer">Réponse</Label>
-                    <Textarea id="answer" v-model="form.answer" required class="min-h-37.5" />
-                    <div
-                        v-if="form.errors.answer"
-                        class="text-sm text-red-500"
-                    >
+                    <Textarea
+                        id="answer"
+                        v-model="form.answer"
+                        required
+                        class="min-h-37.5"
+                    />
+                    <div v-if="form.errors.answer" class="text-sm text-red-500">
                         {{ form.errors.answer }}
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     <Label for="order">Ordre d'affichage</Label>
-                    <Input id="order" type="number" v-model="form.order" required />
+                    <Input
+                        id="order"
+                        type="number"
+                        v-model="form.order"
+                        required
+                    />
                     <div v-if="form.errors.order" class="text-sm text-red-500">
                         {{ form.errors.order }}
                     </div>

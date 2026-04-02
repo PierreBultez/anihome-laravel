@@ -47,25 +47,34 @@ const submit = () => {
             name="description"
             content="Contactez Anihome pour la garde de vos animaux à Courthézon, Orange, Jonquières. Devis gratuit pour visites à domicile et promenades de chiens."
         />
-        <meta property="og:title" content="Contactez votre Petsitter à Courthézon (84) – Anihome" />
-        <meta property="og:description" content="Demandez un devis gratuit pour la garde de vos animaux à Courthézon et ses environs." />
-        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta
+            property="og:title"
+            content="Contactez votre Petsitter à Courthézon (84) – Anihome"
+        />
+        <meta
+            property="og:description"
+            content="Demandez un devis gratuit pour la garde de vos animaux à Courthézon et ses environs."
+        />
+        <meta
+            property="og:image"
+            content="https://anihome.fr/images/choisir_petsitter.webp"
+        />
         <meta property="og:type" content="website" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "LocalBusiness",
-                    "name": "Anihome",
-                    "url": "https://anihome.fr/contact",
-                    "telephone": "+33641137520",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Courthézon",
-                        "postalCode": "84350",
-                        "addressRegion": "Vaucluse",
-                        "addressCountry": "FR"
-                    }
+                    '@context': 'https://schema.org',
+                    '@type': 'LocalBusiness',
+                    name: 'Anihome',
+                    url: 'https://anihome.fr/contact',
+                    telephone: '+33641137520',
+                    address: {
+                        '@type': 'PostalAddress',
+                        addressLocality: 'Courthézon',
+                        postalCode: '84350',
+                        addressRegion: 'Vaucluse',
+                        addressCountry: 'FR',
+                    },
                 })
             }}
         </component>
@@ -105,16 +114,28 @@ const submit = () => {
                     >
                         <div class="grid grid-cols-2 gap-4">
                             <div class="space-y-2">
-                                <Label for="firstname"
-                                    >Votre prénom *</Label
+                                <Label for="firstname">Votre prénom *</Label>
+                                <Input
+                                    id="firstname"
+                                    v-model="form.firstname"
+                                    required
+                                />
+                                <div
+                                    v-if="form.errors.firstname"
+                                    class="text-sm text-red-500"
                                 >
-                                <Input id="firstname" v-model="form.firstname" required />
-                                <div v-if="form.errors.firstname" class="text-sm text-red-500">{{ form.errors.firstname }}</div>
+                                    {{ form.errors.firstname }}
+                                </div>
                             </div>
                             <div class="space-y-2">
                                 <Label for="name">Votre nom *</Label>
                                 <Input id="name" v-model="form.name" required />
-                                <div v-if="form.errors.name" class="text-sm text-red-500">{{ form.errors.name }}</div>
+                                <div
+                                    v-if="form.errors.name"
+                                    class="text-sm text-red-500"
+                                >
+                                    {{ form.errors.name }}
+                                </div>
                             </div>
                         </div>
 
@@ -126,7 +147,12 @@ const submit = () => {
                                 v-model="form.email"
                                 required
                             />
-                            <div v-if="form.errors.email" class="text-sm text-red-500">{{ form.errors.email }}</div>
+                            <div
+                                v-if="form.errors.email"
+                                class="text-sm text-red-500"
+                            >
+                                {{ form.errors.email }}
+                            </div>
                         </div>
 
                         <div class="space-y-2">
@@ -168,7 +194,12 @@ const submit = () => {
                                     >
                                 </SelectContent>
                             </Select>
-                            <div v-if="form.errors.animal" class="text-sm text-red-500">{{ form.errors.animal }}</div>
+                            <div
+                                v-if="form.errors.animal"
+                                class="text-sm text-red-500"
+                            >
+                                {{ form.errors.animal }}
+                            </div>
                         </div>
 
                         <div class="space-y-2">
@@ -179,7 +210,12 @@ const submit = () => {
                                 v-model="form.message"
                                 required
                             />
-                            <div v-if="form.errors.message" class="text-sm text-red-500">{{ form.errors.message }}</div>
+                            <div
+                                v-if="form.errors.message"
+                                class="text-sm text-red-500"
+                            >
+                                {{ form.errors.message }}
+                            </div>
                         </div>
 
                         <Button
@@ -188,7 +224,11 @@ const submit = () => {
                             class="w-full py-6 text-lg"
                             :disabled="form.processing"
                         >
-                            {{ form.processing ? 'ENVOI EN COURS...' : 'DEMANDER UN DEVIS' }}
+                            {{
+                                form.processing
+                                    ? 'ENVOI EN COURS...'
+                                    : 'DEMANDER UN DEVIS'
+                            }}
                         </Button>
                     </form>
                 </div>

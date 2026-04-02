@@ -30,19 +30,29 @@ defineProps<{
             name="description"
             content="Découvrez les tarifs d'Anihome pour la garde d'animaux à domicile à Courthézon, Orange et Vaucluse. Visites chats dès 10€, chiens dès 12€. Devis gratuit."
         />
-        <meta property="og:title" content="Tarifs Petsitter à Courthézon (84) – Anihome" />
-        <meta property="og:description" content="Consultez nos tarifs transparents pour la garde de vos animaux dans le Vaucluse. Devis sur-mesure." />
-        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta
+            property="og:title"
+            content="Tarifs Petsitter à Courthézon (84) – Anihome"
+        />
+        <meta
+            property="og:description"
+            content="Consultez nos tarifs transparents pour la garde de vos animaux dans le Vaucluse. Devis sur-mesure."
+        />
+        <meta
+            property="og:image"
+            content="https://anihome.fr/images/choisir_petsitter.webp"
+        />
         <meta property="og:type" content="website" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "PriceSpecification",
-                    "name": "Tarifs Garde d'animaux Anihome",
-                    "priceCurrency": "EUR",
-                    "minPrice": "10",
-                    "description": "Tarifs pour garde de chats, chiens et NAC à domicile dans le Vaucluse."
+                    '@context': 'https://schema.org',
+                    '@type': 'PriceSpecification',
+                    name: "Tarifs Garde d'animaux Anihome",
+                    priceCurrency: 'EUR',
+                    minPrice: '10',
+                    description:
+                        'Tarifs pour garde de chats, chiens et NAC à domicile dans le Vaucluse.',
                 })
             }}
         </component>
@@ -302,7 +312,6 @@ defineProps<{
             </div>
 
             <FaqSection :faqs="faqs" />
-
         </div>
 
         <ProfessionalCareSection

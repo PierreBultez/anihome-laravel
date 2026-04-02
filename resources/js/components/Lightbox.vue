@@ -61,11 +61,13 @@ defineExpose({ open });
                 {{ photos[currentIndex]?.title }}
             </DialogDescription>
 
-            <div class="relative flex h-full w-full items-center justify-center">
+            <div
+                class="relative flex h-full w-full items-center justify-center"
+            >
                 <!-- Close Button -->
                 <button
                     @click="close"
-                    class="absolute -top-12 right-0 z-50 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 md:right-4 md:top-4"
+                    class="absolute -top-12 right-0 z-50 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70 md:top-4 md:right-4"
                     aria-label="Fermer"
                 >
                     <X class="h-6 w-6" />
@@ -92,7 +94,9 @@ defineExpose({ open });
 
                 <!-- Image and Title -->
                 <div class="flex flex-col items-center justify-center">
-                    <div class="relative flex max-h-[85vh] w-full items-center justify-center">
+                    <div
+                        class="relative flex max-h-[85vh] w-full items-center justify-center"
+                    >
                         <img
                             :src="photos[currentIndex]?.path"
                             :alt="photos[currentIndex]?.title"

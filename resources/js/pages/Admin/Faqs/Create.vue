@@ -44,26 +44,42 @@ const submit = () => {
             <form @submit.prevent="submit" class="space-y-6">
                 <div class="space-y-2">
                     <Label for="question">Question</Label>
-                    <Input id="question" v-model="form.question" required placeholder="Ex: Quels sont vos tarifs ?" />
-                    <div v-if="form.errors.question" class="text-sm text-red-500">
+                    <Input
+                        id="question"
+                        v-model="form.question"
+                        required
+                        placeholder="Ex: Quels sont vos tarifs ?"
+                    />
+                    <div
+                        v-if="form.errors.question"
+                        class="text-sm text-red-500"
+                    >
                         {{ form.errors.question }}
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     <Label for="answer">Réponse</Label>
-                    <Textarea id="answer" v-model="form.answer" required placeholder="La réponse..." class="min-h-37.5" />
-                    <div
-                        v-if="form.errors.answer"
-                        class="text-sm text-red-500"
-                    >
+                    <Textarea
+                        id="answer"
+                        v-model="form.answer"
+                        required
+                        placeholder="La réponse..."
+                        class="min-h-37.5"
+                    />
+                    <div v-if="form.errors.answer" class="text-sm text-red-500">
                         {{ form.errors.answer }}
                     </div>
                 </div>
 
                 <div class="space-y-2">
                     <Label for="order">Ordre d'affichage</Label>
-                    <Input id="order" type="number" v-model="form.order" required />
+                    <Input
+                        id="order"
+                        type="number"
+                        v-model="form.order"
+                        required
+                    />
                     <div v-if="form.errors.order" class="text-sm text-red-500">
                         {{ form.errors.order }}
                     </div>

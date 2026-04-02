@@ -30,21 +30,32 @@ defineProps<{
                     class="rounded-2xl border bg-card p-6 shadow-sm"
                 >
                     <div class="flex items-start gap-4">
-                        <div class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-primary/10">
+                        <div
+                            class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-primary/10"
+                        >
                             <img
                                 v-if="testimonial.photo_path"
                                 :src="`/storage/${testimonial.photo_path}`"
                                 :alt="testimonial.name"
                                 class="h-full w-full object-cover"
                             />
-                            <div v-else class="flex h-full w-full items-center justify-center text-primary">
-                                <span class="text-xl font-bold">{{ testimonial.name.charAt(0) }}</span>
+                            <div
+                                v-else
+                                class="flex h-full w-full items-center justify-center text-primary"
+                            >
+                                <span class="text-xl font-bold">{{
+                                    testimonial.name.charAt(0)
+                                }}</span>
                             </div>
                         </div>
                         <div>
-                            <h3 class="font-bold text-primary">{{ testimonial.name }}</h3>
+                            <h3 class="font-bold text-primary">
+                                {{ testimonial.name }}
+                            </h3>
                             <div class="mt-2 text-muted-foreground">
-                                <p class="whitespace-pre-wrap text-sm leading-relaxed">
+                                <p
+                                    class="text-sm leading-relaxed whitespace-pre-wrap"
+                                >
                                     {{ testimonial.content }}
                                 </p>
                             </div>

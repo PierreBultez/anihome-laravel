@@ -47,9 +47,18 @@ const stripHtml = (html: string) => {
             name="description"
             content="Découvrez Pierre et Wendy d'Anihome, vos petsitters professionnels à Courthézon (84). Passionnés d'animaux, nous proposons des gardes à domicile et promenades dans le Vaucluse."
         />
-        <meta property="og:title" content="Qui sommes-nous ? Petsitters à Courthézon – Anihome" />
-        <meta property="og:description" content="Faites connaissance avec Pierre et Wendy, vos experts en bien-être animal à Courthézon." />
-        <meta property="og:image" content="https://anihome.fr/images/pets_about_2.webp" />
+        <meta
+            property="og:title"
+            content="Qui sommes-nous ? Petsitters à Courthézon – Anihome"
+        />
+        <meta
+            property="og:description"
+            content="Faites connaissance avec Pierre et Wendy, vos experts en bien-être animal à Courthézon."
+        />
+        <meta
+            property="og:image"
+            content="https://anihome.fr/images/pets_about_2.webp"
+        />
         <meta property="og:type" content="profile" />
     </Head>
 
@@ -137,7 +146,10 @@ const stripHtml = (html: string) => {
         <FaqSection :faqs="faqs" />
 
         <!-- News Teaser -->
-        <section class="bg-background py-16 text-center" v-if="latestPosts.length > 0">
+        <section
+            class="bg-background py-16 text-center"
+            v-if="latestPosts.length > 0"
+        >
             <div class="container mx-auto px-4">
                 <h2 class="mb-4 text-3xl font-bold text-primary">
                     L’actualité animale
@@ -171,7 +183,9 @@ const stripHtml = (html: string) => {
                             <div class="mb-2 text-sm text-muted-foreground">
                                 {{ formatDate(post.published_at) }}
                             </div>
-                            <CardTitle class="line-clamp-2">{{ post.title }}</CardTitle>
+                            <CardTitle class="line-clamp-2">{{
+                                post.title
+                            }}</CardTitle>
                         </CardHeader>
                         <CardContent class="grow">
                             <p class="line-clamp-3 text-muted-foreground">

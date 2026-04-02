@@ -157,15 +157,28 @@ const submit = () => {
                             <SelectContent>
                                 <SelectItem value="Dog">Chien</SelectItem>
                                 <SelectItem value="Cat">Chat</SelectItem>
-                                <SelectItem value="Rabbit">Lapin / NAC</SelectItem>
-                                <SelectItem value="Footprints">Empreintes / Promenade</SelectItem>
-                                <SelectItem value="Home">Maison / À domicile</SelectItem>
+                                <SelectItem value="Rabbit"
+                                    >Lapin / NAC</SelectItem
+                                >
+                                <SelectItem value="Footprints"
+                                    >Empreintes / Promenade</SelectItem
+                                >
+                                <SelectItem value="Home"
+                                    >Maison / À domicile</SelectItem
+                                >
                                 <SelectItem value="Siren">Urgence</SelectItem>
-                                <SelectItem value="Stethoscope">Soins</SelectItem>
-                                <SelectItem value="Heart">Amour / Accompagnement</SelectItem>
+                                <SelectItem value="Stethoscope"
+                                    >Soins</SelectItem
+                                >
+                                <SelectItem value="Heart"
+                                    >Amour / Accompagnement</SelectItem
+                                >
                             </SelectContent>
                         </Select>
-                        <div v-if="form.errors.icon" class="text-sm text-red-500">
+                        <div
+                            v-if="form.errors.icon"
+                            class="text-sm text-red-500"
+                        >
                             {{ form.errors.icon }}
                         </div>
                     </div>
@@ -186,7 +199,9 @@ const submit = () => {
                                 :model-value="form.is_featured"
                                 @update:model-value="form.is_featured = $event"
                             />
-                            <Label for="is_featured">Mettre en avant (Accueil)</Label>
+                            <Label for="is_featured"
+                                >Mettre en avant (Accueil)</Label
+                            >
                         </div>
                     </div>
                 </div>

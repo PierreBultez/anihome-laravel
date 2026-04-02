@@ -258,9 +258,7 @@ watch(
                                         />
                                     </InputOTPGroup>
                                 </InputOTP>
-                                <InputError
-                                    :message="errors.code"
-                                />
+                                <InputError :message="errors.code" />
                             </div>
 
                             <div class="flex w-full items-center space-x-5">

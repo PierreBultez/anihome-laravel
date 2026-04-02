@@ -145,7 +145,10 @@ const getImageUrl = (path: string | null) => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        <TableRow v-for="testimonial in testimonials" :key="testimonial.id">
+                        <TableRow
+                            v-for="testimonial in testimonials"
+                            :key="testimonial.id"
+                        >
                             <TableCell>
                                 <Checkbox
                                     :model-value="
@@ -161,14 +164,23 @@ const getImageUrl = (path: string | null) => {
                                 />
                             </TableCell>
                             <TableCell>
-                                <div class="h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+                                <div
+                                    class="h-10 w-10 overflow-hidden rounded-full bg-gray-100"
+                                >
                                     <img
                                         v-if="testimonial.photo_path"
-                                        :src="getImageUrl(testimonial.photo_path) || ''"
+                                        :src="
+                                            getImageUrl(
+                                                testimonial.photo_path,
+                                            ) || ''
+                                        "
                                         :alt="testimonial.name"
                                         class="h-full w-full object-cover"
                                     />
-                                    <div v-else class="flex h-full w-full items-center justify-center text-gray-400">
+                                    <div
+                                        v-else
+                                        class="flex h-full w-full items-center justify-center text-gray-400"
+                                    >
                                         <span class="text-xs">No img</span>
                                     </div>
                                 </div>
@@ -211,7 +223,9 @@ const getImageUrl = (path: string | null) => {
                                         variant="ghost"
                                         size="icon"
                                         class="text-red-600 hover:bg-red-50 hover:text-red-700"
-                                        @click="deleteTestimonial(testimonial.id)"
+                                        @click="
+                                            deleteTestimonial(testimonial.id)
+                                        "
                                     >
                                         <Trash2 class="h-4 w-4" />
                                     </Button>

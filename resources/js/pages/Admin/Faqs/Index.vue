@@ -38,8 +38,7 @@ const selectedIds = ref<number[]>([]);
 
 const allSelected = computed(() => {
     return (
-        props.faqs.length > 0 &&
-        selectedIds.value.length === props.faqs.length
+        props.faqs.length > 0 && selectedIds.value.length === props.faqs.length
     );
 });
 
@@ -143,15 +142,10 @@ const toggleStatus = (faq: { id: number; is_active: boolean }) => {
                         <TableRow v-for="faq in faqs" :key="faq.id">
                             <TableCell>
                                 <Checkbox
-                                    :model-value="
-                                        selectedIds.includes(faq.id)
-                                    "
+                                    :model-value="selectedIds.includes(faq.id)"
                                     @update:model-value="
                                         (checked: any) =>
-                                            toggleSelection(
-                                                faq.id,
-                                                !!checked,
-                                            )
+                                            toggleSelection(faq.id, !!checked)
                                     "
                                 />
                             </TableCell>
@@ -166,15 +160,11 @@ const toggleStatus = (faq: { id: number; is_active: boolean }) => {
                                 <div class="flex items-center space-x-2">
                                     <Switch
                                         :model-value="faq.is_active"
-                                        @update:model-value="
-                                            toggleStatus(faq)
-                                        "
+                                        @update:model-value="toggleStatus(faq)"
                                     />
                                     <span class="text-sm text-muted-foreground">
                                         {{
-                                            faq.is_active
-                                                ? 'Actif'
-                                                : 'Inactif'
+                                            faq.is_active ? 'Actif' : 'Inactif'
                                         }}
                                     </span>
                                 </div>

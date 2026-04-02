@@ -21,31 +21,46 @@ defineProps<{
 <template>
     <Head>
         <title>{{ post.title }} – Anihome Petsitter Courthézon</title>
-        <meta name="description" :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')" />
+        <meta
+            name="description"
+            :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')"
+        />
         <meta property="og:title" :content="post.title" />
-        <meta property="og:description" :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')" />
-        <meta property="og:image" :content="post.image_path ? `https://anihome.fr/storage/${post.image_path}` : 'https://anihome.fr/images/choisir_petsitter.webp'" />
+        <meta
+            property="og:description"
+            :content="post.content.substring(0, 160).replace(/<[^>]*>?/gm, '')"
+        />
+        <meta
+            property="og:image"
+            :content="
+                post.image_path
+                    ? `https://anihome.fr/storage/${post.image_path}`
+                    : 'https://anihome.fr/images/choisir_petsitter.webp'
+            "
+        />
         <meta property="og:type" content="article" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "image": post.image_path ? `https://anihome.fr/storage/${post.image_path}` : "https://anihome.fr/images/Logo.png",
-                    "datePublished": post.published_at,
-                    "author": {
-                        "@type": "Person",
-                        "name": post.user.name
+                    '@context': 'https://schema.org',
+                    '@type': 'BlogPosting',
+                    headline: post.title,
+                    image: post.image_path
+                        ? `https://anihome.fr/storage/${post.image_path}`
+                        : 'https://anihome.fr/images/Logo.png',
+                    datePublished: post.published_at,
+                    author: {
+                        '@type': 'Person',
+                        name: post.user.name,
                     },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Anihome",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://anihome.fr/images/Logo.png"
-                        }
-                    }
+                    publisher: {
+                        '@type': 'Organization',
+                        name: 'Anihome',
+                        logo: {
+                            '@type': 'ImageObject',
+                            url: 'https://anihome.fr/images/Logo.png',
+                        },
+                    },
                 })
             }}
         </component>
@@ -82,8 +97,8 @@ defineProps<{
             ></div>
         </article>
     </div>
-    
-    <ProfessionalCareSection 
+
+    <ProfessionalCareSection
         text="Besoin de faire garder votre animal pendant vos vacances ? Anihome est à votre service à Courthézon, Orange et dans tout le Vaucluse."
     />
 </template>

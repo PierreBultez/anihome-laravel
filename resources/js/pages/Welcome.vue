@@ -58,59 +58,70 @@ const iconMap: Record<string, any> = {
 
 <template>
     <Head>
-        <title>Anihome : Petsitter à Courthézon (84) - Garde d'animaux 🐾</title>
+        <title>
+            Anihome : Petsitter à Courthézon (84) - Garde d'animaux 🐾
+        </title>
         <meta
             name="description"
             content="Garde d'animaux à domicile à Courthézon & Vaucluse. Pierre & Wendy, petsitters pro pour chiens, chats, NAC. Visites & promenades 🐾 Devis gratuit."
         />
-        <meta property="og:title" content="Anihome : Petsitter à Courthézon (84) - Garde d'animaux" />
-        <meta property="og:description" content="Garde d'animaux de compagnie à domicile. Passionnés et professionnels à Courthézon, Orange et environs." />
-        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta
+            property="og:title"
+            content="Anihome : Petsitter à Courthézon (84) - Garde d'animaux"
+        />
+        <meta
+            property="og:description"
+            content="Garde d'animaux de compagnie à domicile. Passionnés et professionnels à Courthézon, Orange et environs."
+        />
+        <meta
+            property="og:image"
+            content="https://anihome.fr/images/choisir_petsitter.webp"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://anihome.fr" />
         <component :is="'script'" type="application/ld+json">
             {{
                 JSON.stringify({
-                    "@context": "https://schema.org",
-                    "@type": "LocalBusiness",
-                    "name": "Anihome",
-                    "image": "https://anihome.fr/images/Logo.png",
-                    "@id": "https://anihome.fr/#organization",
-                    "url": "https://anihome.fr",
-                    "telephone": "+33641137520",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Courthézon",
-                        "postalCode": "84350",
-                        "addressRegion": "Vaucluse",
-                        "addressCountry": "FR"
+                    '@context': 'https://schema.org',
+                    '@type': 'LocalBusiness',
+                    name: 'Anihome',
+                    image: 'https://anihome.fr/images/Logo.png',
+                    '@id': 'https://anihome.fr/#organization',
+                    url: 'https://anihome.fr',
+                    telephone: '+33641137520',
+                    address: {
+                        '@type': 'PostalAddress',
+                        addressLocality: 'Courthézon',
+                        postalCode: '84350',
+                        addressRegion: 'Vaucluse',
+                        addressCountry: 'FR',
                     },
-                    "geo": {
-                        "@type": "GeoCoordinates",
-                        "latitude": 44.0861,
-                        "longitude": 4.8839
+                    geo: {
+                        '@type': 'GeoCoordinates',
+                        latitude: 44.0861,
+                        longitude: 4.8839,
                     },
-                    "openingHoursSpecification": {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": [
-                            "Monday",
-                            "Tuesday",
-                            "Wednesday",
-                            "Thursday",
-                            "Friday",
-                            "Saturday",
-                            "Sunday"
+                    openingHoursSpecification: {
+                        '@type': 'OpeningHoursSpecification',
+                        dayOfWeek: [
+                            'Monday',
+                            'Tuesday',
+                            'Wednesday',
+                            'Thursday',
+                            'Friday',
+                            'Saturday',
+                            'Sunday',
                         ],
-                        "opens": "08:00",
-                        "closes": "20:00"
+                        opens: '08:00',
+                        closes: '20:00',
                     },
-                    "areaServed": [
-                        { "@type": "City", "name": "Courthézon" },
-                        { "@type": "City", "name": "Orange" },
-                        { "@type": "City", "name": "Jonquières" },
-                        { "@type": "City", "name": "Bédarrides" },
-                        { "@type": "City", "name": "Sarrians" }
-                    ]
+                    areaServed: [
+                        { '@type': 'City', name: 'Courthézon' },
+                        { '@type': 'City', name: 'Orange' },
+                        { '@type': 'City', name: 'Jonquières' },
+                        { '@type': 'City', name: 'Bédarrides' },
+                        { '@type': 'City', name: 'Sarrians' },
+                    ],
                 })
             }}
         </component>

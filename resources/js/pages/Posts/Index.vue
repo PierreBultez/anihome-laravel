@@ -36,14 +36,26 @@ const stripHtml = (html: string) => {
 
 <template>
     <Head>
-        <title>Blog Animalier : Conseils & Actualités Petsitting Courthézon – Anihome</title>
+        <title>
+            Blog Animalier : Conseils & Actualités Petsitting Courthézon –
+            Anihome
+        </title>
         <meta
             name="description"
             content="Retrouvez les conseils d'Anihome, petsitter à Courthézon, pour prendre soin de vos animaux. Actualités, astuces et bien-être animal dans le Vaucluse."
         />
-        <meta property="og:title" content="Blog Animalier : Conseils & Actualités Petsitting Courthézon – Anihome" />
-        <meta property="og:description" content="Toute l'actualité des animaux et les conseils de vos experts petsitters à Courthézon." />
-        <meta property="og:image" content="https://anihome.fr/images/choisir_petsitter.webp" />
+        <meta
+            property="og:title"
+            content="Blog Animalier : Conseils & Actualités Petsitting Courthézon – Anihome"
+        />
+        <meta
+            property="og:description"
+            content="Toute l'actualité des animaux et les conseils de vos experts petsitters à Courthézon."
+        />
+        <meta
+            property="og:image"
+            content="https://anihome.fr/images/choisir_petsitter.webp"
+        />
         <meta property="og:type" content="website" />
     </Head>
 
@@ -102,10 +114,10 @@ const stripHtml = (html: string) => {
             </p>
         </div>
     </div>
-    
+
     <FaqSection :faqs="faqs" />
 
-    <ProfessionalCareSection 
+    <ProfessionalCareSection
         text="Restez informé avec Anihome, votre expert en garde d'animaux à Courthézon et ses environs (Orange, Sorgues, Bédarrides). Des conseils de pros pour vos compagnons."
     />
 </template>
