@@ -1,16 +1,16 @@
 name: Deploy to VPS
 
 on:
-  push:
-    branches: [ master ]
+  workflow_run:
+    workflows: ["tests"]
+    types: [completed]
+    branches: [master]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -28,15 +28,15 @@ jobs:
             # Maintenance mode
             php artisan down || true
 
-            # Update code (force overwrite local changes)
+            # Update code
             git fetch origin master
             git reset --hard origin/master
 
             # Install PHP dependencies
-            composer install --no-interaction --prefer-dist --optimize-autoloader
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-            # Install JS dependencies and Build assets
-            npm install
+            # Install JS dependencies and build assets (with SSR)
+            npm ci
             npm run build:ssr
 
             # Restart SSR server
@@ -49,6 +49,7 @@ jobs:
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+            php artisan event:cache
 
             # Ensure permissions
             sudo chown -R $USER:www-data storage bootstrap/cache || true
