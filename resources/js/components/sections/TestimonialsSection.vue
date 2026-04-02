@@ -55,14 +55,12 @@ function loadMore() {
                                 :alt="testimonial.name"
                                 class="h-full w-full object-cover"
                             />
-                            <div
+                            <img
                                 v-else
-                                class="flex h-full w-full items-center justify-center text-primary"
-                            >
-                                <span class="text-xl font-bold">{{
-                                    testimonial.name.charAt(0)
-                                }}</span>
-                            </div>
+                                src="/images/patte.png"
+                                :alt="testimonial.name"
+                                class="h-full w-full object-cover"
+                            />
                         </div>
                         <div>
                             <h3 class="font-bold text-primary">
