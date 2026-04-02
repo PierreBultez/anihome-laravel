@@ -1,5 +1,8 @@
 <script setup lang="ts">
-defineProps<{
+import { ref, computed } from 'vue';
+import { Button } from '@/components/ui/button';
+
+const props = defineProps<{
     testimonials: Array<{
         id: number;
         name: string;
@@ -7,6 +10,21 @@ defineProps<{
         photo_path: string | null;
     }>;
 }>();
+
+const perPage = 6;
+const visibleCount = ref(perPage);
+
+const visibleTestimonials = computed(() =>
+    props.testimonials.slice(0, visibleCount.value),
+);
+
+const hasMore = computed(
+    () => visibleCount.value < props.testimonials.length,
+);
+
+function loadMore() {
+    visibleCount.value += perPage;
+}
 </script>
 
 <template>
@@ -25,7 +43,7 @@ defineProps<{
 
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <div
-                    v-for="testimonial in testimonials"
+                    v-for="testimonial in visibleTestimonials"
                     :key="testimonial.id"
                     class="rounded-2xl border bg-card p-6 shadow-sm"
                 >
@@ -62,6 +80,17 @@ defineProps<{
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div v-if="hasMore" class="mt-12 flex justify-center">
+                <Button
+                    size="lg"
+                    variant="outline"
+                    class="rounded-full border-2 border-primary px-8 py-6 text-lg text-primary transition-all hover:bg-primary hover:text-white"
+                    @click="loadMore"
+                >
+                    Charger plus d'avis
+                </Button>
             </div>
         </div>
     </section>
